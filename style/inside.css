@@ -1,0 +1,72 @@
+
+#header {
+	background: url('../images/banner_bg.png') no-repeat top center;
+	width: 1200px;
+	height: 294px;
+	margin: 0px auto;
+	margin-top: 5px;
+	border: 6px solid #000;
+}
+
+#logo {
+	top: -278px;
+}
+
+#header_underline {
+	width: 1200px;
+	height: 35px;
+	position: relative;
+	z-index: 0;
+	top: -415px;
+}
+
+#title {	
+	position: relative;
+	z-index: 4;
+	top: -100px;
+	left: 100px;
+	width: 350px;
+	text-align: center;
+}
+
+#title_container {
+	position: relative;
+	width: 500px;
+	top: -220px;
+	left: 100px;
+	text-align: center;
+}
+
+#title_container h1 {
+	position: static;
+	margin: 0px auto;
+}
+
+#title_container img {
+	margin: 0 0 -10px 0;
+}
+
+/*
+*/
+
+.breadcrumb {
+	margin-top: -180px;
+	padding-left: 10px;
+	font-size: 1em;
+	font-family: times;
+}
+
+.text {
+	padding: 10px 7px;
+}
+
+.text h3 {
+	padding: 15px 0 0 0;
+}
+
+.text h3:first-child {
+	padding-top: 0;
+}
+
+/*
+*/
