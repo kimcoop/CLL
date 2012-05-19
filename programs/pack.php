@@ -28,19 +28,17 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		PACK (Physical Activities Camp for Kids) is a summer camp. Open to middle school youth ages 10 to 14, this program is offered in lieu of the de-funding of the longstanding NYSP (National Youth Sports Program). 
-		This 5-week summer camp provides instruction in a variety of sports and physical activities free of charge. 
-		Open to youth from underserved neighborhood.
+		<?= $pack; ?>
 	</div>
 
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		Summer. 5-week camp.
+		<?= $pack_when; ?>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>
-		Free.
+		<?= $pack_cost; ?>
 	</div>
 	
 	<div class="text">
@@ -48,7 +46,6 @@ $(function() {
 		
 		<p><a href="">Application</a></p>
 		<p><a href="">Physical Exam Form (required)</a></p>
-		
 		
 	</div>
 

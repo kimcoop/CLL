@@ -27,23 +27,22 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-			PAWS (Pitt Athletes Working with Students) is a mini-sports camp developed in collaboration with the Pitt Athletic Department. 
-			Through this program Pitt coaches and their student athletes interact with youth grades 5 to 8, instructing them in ten different sports activities.
-	</div>
+		<?= $paws; ?>	
+		</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-	  Spring semester. Saturday mornings from 10am - 12pm.
+		<?= $paws_when; ?>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Where</h2></div>
-		Trees Hall.
+		<?= $paws_where; ?>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>
-		 A nominal fee.
+		<?= $paws_cost; ?>
 	</div>
 
 </div>

@@ -11,18 +11,15 @@ include('include/home_header.php');
 			<div class="bubble" id="about_bubble">
 				<h2>About</h2>
 			</div>
-				Community Leisure-Learn (CLL) is Pitt's oldest outreach program, serving residents for over 37 years!
-				All of our programs are offered to youth from under-served neighborhoods. CLL is located on Pitt's
-				main campus and is staffed by Pitt students, faculty, and alumni.
+				<?= $index_about ?>
 	</div>
 	
 	<div class="text">
 			<div class="bubble" id="updates_bubble">
 				<h2>Events</h2>
 			</div>
-				Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-				 lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-			</div>
+				<?= $index_events ?>
+				</div>
 
 </div>
 

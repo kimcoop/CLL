@@ -28,11 +28,11 @@ $(function() {
 
 	<div class="text">
 		<h3><a href="parent_fitness.php">Parent Fitness 101</a></h3>
-		This is a program offered in conjunction with Saturday's Kids and PAWS. Parents accompanying their child(ren) are invited to learn how to use the equipment in the Trees Hall weight room. Student from the Department of Health & Physical Activity offer the instruction.
+		<?= $parent_fitness_about; ?>
 	</div>	
 	<div class="text">
 		<h3><a href="guest_pass.php">Guest Pass</a></h3>
-		This is a free membership to use specific facilities at Trees Hall. This is offered to residents age 18 and older who are from the 15213 and 15219 zip codes neighborhoods only. The pass is free and permits use of the pool, gym, and the weight room. Only 250 passes are available annually. Sign up occurs at Trees Hall the first 10 days of the September and January semesters. (Ongoing)
+		<?= $guest_pass_about; ?>
 	</div>
 
 </div>

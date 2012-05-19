@@ -28,12 +28,12 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		This is a free membership to use specific facilities at Trees Hall. This is offered to residents ages 18 and older who are from the 15213 and 15219 zip codes neighborhoods only. The pass is free and permits use of the pool, gym, and the weight room.
+		<?= $guest_pass_about; ?>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		Sign up occurs biannually at Trees Hall the first 10 days of September and January. Use of the guest pass is ongoing. Only 250 passes are available per year.
+		<?= $guest_pass_when; ?>
 	</div>
 
 </div>

@@ -29,14 +29,14 @@ $(function() {
 		<div class="bubble">
 			<h2>About</h2>
 		</div>
-		This is a program offered in conjunction with Saturday's Kids and PAWS. Parents accompanying their child(ren) are invited to learn how to use the equipment in the Trees Hall weight room. Student from the Dept. of Health & Physical Activity offer the instruction. 
+		<?= $parent_fitness; ?>
 	</div>
 	
 	<div class="text">
 		<div class="bubble">
 			<h2>When</h2>
 		</div>
-		Fall & Spring semesters.
+		<?= $parent_fitness_when; ?>
 	</div>
 
 </div>
