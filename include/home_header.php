@@ -172,10 +172,17 @@ $.fn.active_hover = function() {
 
 <img src="../images/header_underline.png" id="header_underline"/>
 <img src="../images/header_overline.png" id="header_overline"/>
+-->
 
-<img src="../images/adults.png" height="80" id="img_adults"/>
-<img src="../images/kids_jumping.png" height="120" id="img_kids"/>
-<img src="../images/comm_scene.png" height="80" id="img_comm" />-->
+<div class="clearfix"></div>
+
+<div id="home_images">
+
+	<img src="../images/kids_jumping.png" height="120" id="img_kids" class="home_img"/>
+	<img src="../images/adults.png" height="80" id="img_adults" class="home_img"/>
+	<img src="../images/comm_scene.png" height="80" id="img_comm"  class="home_img"/>
+
+</div> <!-- /#home_images -->
 
 </div>
 

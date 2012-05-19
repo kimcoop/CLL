@@ -20,6 +20,9 @@ body {
 	background: #ccc;
 	background: url('../images/arches.png') repeat top center;
 	background: #ccc;
+	//background: url('../images/kids_boxing.png') no-repeat top center;
+	//background-attachment: fixed;
+	//background-size: 100%;
 	margin: 0;
 	font-size: 12pt;
 	letter-spacing: -0.07em;
@@ -41,8 +44,6 @@ body {
 	margin: 0px auto;
 	margin-top: 5px;
 	border: 6px solid #000;
-	border-top: 0;
-	border-bottom: 0;
 }
 
 #container {
@@ -53,6 +54,7 @@ body {
 	overflow: hidden;
 	line-height: 1.3em;
 	background: #005F3B;
+	//background: url('../images/background-pattern.png') repeat top left;
 	margin: 0px auto;
 	border: 6px solid #000;
 }
@@ -60,11 +62,11 @@ body {
 #footer {
 	width: 1200px;
 	border: 6px solid #000;
-	border-top: 3px solid #000;
+	border-top:0; 
 	margin: 0px auto;
 	margin-bottom: 20px;
 	text-align: center;
-	padding: 20px 0 5px 0;
+	padding: 10px 0 8px 0;
 	font-size: 1em;
 	font-family: Palatino, times;
 	background: #003FCF;
@@ -142,11 +144,12 @@ a:hover {
 h1, h2 {
 	color: #EA1D25;
 	font-family: 'Permanent Marker', "Helvetica Neue Light", Helvetica, cursive;
-	//font-family: 'Rock Salt', cursive;
+	text-shadow: 1px 1px 0px #ccc;
 }
 
 h3 {
-	margin: 0 0 0 0;
+	margin: 0;
+	text-shadow: 1px 1px 0px #ccc;
 }
 
 .text h3 a, .text a {
@@ -171,4 +174,19 @@ h2.small {
 
 .clearfix {
 	clear: both;
+}
+
+.go {
+	padding: 0 0 0 10px;
+	width: 20px;
+	height: 20px;
+	display: inline;
+	background: url('../images/go.png') no-repeat top center;
+}
+
+.go:hover {
+	width: 20px;
+	height: 20px;
+	display: inline;
+	background: url('../images/go_hover.png') no-repeat top center;
 }

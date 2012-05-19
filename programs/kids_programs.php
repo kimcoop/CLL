@@ -28,17 +28,17 @@ $(function() {
 </div>
 
 	<div class="text">
-		<h3><a href="saturdays_kids.php">Saturday's Kids</a></h3>
+		<h3><a href="saturdays_kids.php">Saturday's Kids<div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></a></h3>
 		<p><?= $saturdays_kids_about; ?></p>
 	</div>	
 	
 	<div class="text">
-		<h3><a href="paws.php">PAWS</a></h3>
+		<h3><a href="paws.php">PAWS<div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></a></h3>
 		<p><?= $paws_about; ?></p>
 	</div>
 	
 	<div class="text">
-		<h3><a href="pack.php">PACK</a></h3>	
+		<h3><a href="pack.php">PACK<div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></a></h3>	
 		<p><?= $pack_about; ?></p>
 	</div>
 

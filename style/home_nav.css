@@ -1,82 +1,74 @@
-/*
+#nav {
+	top: 100px;
+}
+
 #nav_home {
-	top: -420px;
-	left: 680px;
-	-webkit-transform: rotate(-2deg); 
-	-moz-transform: rotate(-2deg);
-	-ms-transform:rotate(-2deg); 
-	-o-transform:rotate(-2deg); 
-	transform: rotate(-2deg);
-	background: #000;
+	top: -90px;
+	left: 60px;
 }
 
 #nav_kids {
-	top: -313px;
-	left: 700px;
-	width: 180px;
+	top: 63px;
+	left: 0px;
+	width: 144px;
 }
 
 #nav_adults {
-	top: -500px;
-	left: 970px;
+	top: -30px;
+	left: 55px;
 	-webkit-transform: rotate(-5deg); 
 	-moz-transform: rotate(-5deg);
 	-ms-transform:rotate(-5deg);
-	-o-transform:rotate(-5deg); 
+	-o-transform:rotate(-5deg);
 	transform: rotate(-5deg);
-	background: #000;
 }
 
 #nav_community {
-	top: -418px;
-	left: 1005px;
+	top: 110px;
+	left: -20px;
 }
-
-#arrow_kids {
-
-	background: url('../images/arrow_1.png') repeat top center;
-	height: 107px;
-	width: 103px;
-	position: relative;
-	left: -40px;
-	top: -50px;
-	z-index: 5;
-	
-}
-*/
 
 #img_adults {
 	position: relative;
 	z-index: 3;
-	top: -780px;
-	left: 980px;
+	top: -115px;
+	left: 70px;
 	-webkit-transform: rotate(-5deg); 
 	-moz-transform: rotate(-5deg);
-	-ms-transform:rotate(-5deg); /* IE 9 */
-	-o-transform:rotate(-5deg); /* Opera */
+	-ms-transform:rotate(-5deg);
+	-o-transform:rotate(-5deg);
 	transform: rotate(-5deg);
 }
 
 #img_kids {
 	position: relative;
 	z-index: 3;
-	top: -655px;
-	left: 580px;
+	top: -30px;
+	left: -10px;
 	-webkit-transform: rotate(2deg); 
 	-moz-transform: rotate(2deg);
-	-ms-transform:rotate(2deg); /* IE 9 */
-	-o-transform:rotate(2deg); /* Opera */
+	-ms-transform:rotate(2deg); 
+	-o-transform:rotate(2deg);
 	transform: rotate(2deg);
 }
 
 #img_comm {
 	position: relative;
 	z-index: 3;
-	top: -640px;
-	left: 640px;
+	top: 20px;
+	left: -10px;
 	-webkit-transform: rotate(-3deg); 
 	-moz-transform: rotate(-3deg);
 	-ms-transform:rotate(-3deg);
 	-o-transform:rotate(-3deg);
 	transform: rotate(-3deg);
+}
+
+.home_img {
+	float: left;
+}
+
+#home_images {
+	margin-top: 50px;
+	float: right;
 }
