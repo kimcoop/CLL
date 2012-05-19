@@ -1,8 +1,48 @@
-#nav {
-	top: -450px;
+/*
+#nav_home {
+	top: -420px;
+	left: 680px;
+	-webkit-transform: rotate(-2deg); 
+	-moz-transform: rotate(-2deg);
+	-ms-transform:rotate(-2deg); 
+	-o-transform:rotate(-2deg); 
+	transform: rotate(-2deg);
+	background: #000;
 }
 
-/*
+#nav_kids {
+	top: -313px;
+	left: 700px;
+	width: 180px;
+}
+
+#nav_adults {
+	top: -500px;
+	left: 970px;
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg);
+	-ms-transform:rotate(-5deg);
+	-o-transform:rotate(-5deg); 
+	transform: rotate(-5deg);
+	background: #000;
+}
+
+#nav_community {
+	top: -418px;
+	left: 1005px;
+}
+
+#arrow_kids {
+
+	background: url('../images/arrow_1.png') repeat top center;
+	height: 107px;
+	width: 103px;
+	position: relative;
+	left: -40px;
+	top: -50px;
+	z-index: 5;
+	
+}
 */
 
 #img_adults {
@@ -39,8 +79,4 @@
 	-ms-transform:rotate(-3deg);
 	-o-transform:rotate(-3deg);
 	transform: rotate(-3deg);
-}
-
-#logo {
-	top: -430px;
 }

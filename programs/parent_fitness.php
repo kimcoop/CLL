@@ -26,17 +26,13 @@ $(function() {
 </div>
 
 	<div class="text">
-		<div class="bubble">
-			<h2>About</h2>
-		</div>
-		<?= $parent_fitness; ?>
+		<div class="bubble"><h2>About</h2></div>
+		<p><?= $parent_fitness; ?></p>
 	</div>
 	
 	<div class="text">
-		<div class="bubble">
-			<h2>When</h2>
-		</div>
-		<?= $parent_fitness_when; ?>
+		<div class="bubble"><h2>When</h2></div>
+		<p><?= $parent_fitness_when; ?></p>
 	</div>
 
 </div>

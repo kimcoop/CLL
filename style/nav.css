@@ -6,7 +6,6 @@
 	margin-right: 20px;
 	top: -20px;
 	float: right;
-	border: thick solid purple;
 }
 
 .link {
@@ -83,6 +82,7 @@
 
 #pitt_links {
 	position: relative;
+	font-family: Palatino, times;
 	top: 25px;
 	left: 1060px;
 	z-index: 100;
@@ -96,7 +96,7 @@
 	display: none;
 	position: relative;
 	z-index: 999;
-	top: -20px;
+	top: -10px;
 	min-height: 70px;
 	max-height: 300px;
 	width: 180px;

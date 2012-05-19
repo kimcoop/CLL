@@ -27,22 +27,22 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		<?= $paws; ?>	
+		<p><?= $paws; ?></p>
 		</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		<?= $paws_when; ?>
+		<p><?= $paws_when; ?></p>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Where</h2></div>
-		<?= $paws_where; ?>
+		<p><?= $paws_where; ?></p>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>
-		<?= $paws_cost; ?>
+		<p><?= $paws_cost; ?></p>
 	</div>
 
 </div>

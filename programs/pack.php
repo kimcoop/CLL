@@ -28,17 +28,17 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		<?= $pack; ?>
+		<p><?= $pack; ?></p>
 	</div>
 
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		<?= $pack_when; ?>
+		<p><?= $pack_when; ?></p>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>
-		<?= $pack_cost; ?>
+		<p><?= $pack_cost; ?></p>
 	</div>
 	
 	<div class="text">

@@ -27,10 +27,13 @@ $(function() {
 
 	<div class="text">
 		<h3>asdf</h3>
-asdf	</div>	
+		<p>asdf</p>
+	</div>	
+	
 	<div class="text">
 		<h3>asdf</h3>
-asdf	</div>
+		<p>asdfasdf</p>
+	</div>
 
 </div>
 

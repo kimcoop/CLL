@@ -28,22 +28,22 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>	
-		<?= $saturdays_kids; ?>
+		<p><?= $saturdays_kids; ?></p>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>	
-		<?= $saturdays_kids_when; ?>
+		<p><?= $saturdays_kids_when; ?></p>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Where</h2></div>	
-		<?= $saturdays_kids_where; ?>
+		<p><?= $saturdays_kids_where; ?></p>
 	</div>
 
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>	
-		<?= $saturdays_kids_cost; ?>
+		<p><?= $saturdays_kids_cost; ?></p>
 	</div>
 
 </div>

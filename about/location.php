@@ -21,7 +21,7 @@ include('../include/header.php');
 
 	<div class="text">
 		<h3>Trees Hall</h3>
-			Lorem ipsum
+		<p>Lorem ipsum</p>
 	</div>
 
 </div>

@@ -82,8 +82,6 @@ $.fn.active_hover = function() {
 	<a href="http://find.pitt.edu/" id="find_people">Find People</a>	
 </div>
 
-<img id="kids_img" src="images/kids.png"/>
-
 <a href="<? echo SITE_ROOT ?>"/><img id="logo" src="../images/logo.png"/></a>
 
 <div class="clearfix"></div>

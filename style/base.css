@@ -20,17 +20,10 @@ body {
 	background: #ccc;
 	background: url('../images/arches.png') repeat top center;
 	background: #ccc;
-	margin: 0 0 0 0;
+	margin: 0;
 	font-size: 12pt;
 	letter-spacing: -0.07em;
 	margin: 0px auto;
-}
-
-#kids_img {
-	height: 425px;
-	margin: 0px auto;
-	position: relative;
-	z-index: 4;
 }
 
 #logo {
@@ -42,7 +35,7 @@ body {
 }
 
 #header {
-	background: url('../images/banner_bg.png') no-repeat top center;
+	background: url('../images/banner.png') no-repeat top center;
 	width: 1200px;
 	height: 440px;
 	margin: 0px auto;
@@ -54,13 +47,14 @@ body {
 
 #container {
 	width: 1200px;
-	background: #005F3B;
-	margin: 0px auto;
-	border: 6px solid #000;
 	border-top: 0;
 	border-bottom: 0;
 	padding: 3px 0;
 	overflow: hidden;
+	line-height: 1.3em;
+	background: #005F3B;
+	margin: 0px auto;
+	border: 6px solid #000;
 }
 
 #footer {
@@ -72,7 +66,7 @@ body {
 	text-align: center;
 	padding: 20px 0 5px 0;
 	font-size: 1em;
-	font-family: times;
+	font-family: Palatino, times;
 	background: #003FCF;
 	color: #ccc;
 }
@@ -82,13 +76,17 @@ body {
 	width: 820px;
 	min-height: 30px;
 	margin: 40px auto;
-	background: #fafafa;
-	border: 1px solid #fafafa;
+	padding: 15px 8px 10px 8px;
 	-moz-box-shadow: 4px 4px 0 #000;
 	-webkit-box-shadow: 4px 4px 0 #000;
 	box-shadow: 4px 4px 0 #000;	
 	color: #000;
-	padding: 15px 8px 10px 8px;
+	background: #fafafa;
+	border: 1px solid #fafafa;
+}
+
+.text p {
+	font-family: Palatino, times;
 }
 
 .text_footer {

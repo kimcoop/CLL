@@ -28,11 +28,11 @@ $(function() {
 
 	<div class="text">
 		<h3><a href="parent_fitness.php">Parent Fitness 101</a></h3>
-		<?= $parent_fitness_about; ?>
+		<p><?= $parent_fitness_about; ?></p>
 	</div>	
 	<div class="text">
 		<h3><a href="guest_pass.php">Guest Pass</a></h3>
-		<?= $guest_pass_about; ?>
+		<p><?= $guest_pass_about; ?></p>
 	</div>
 
 </div>

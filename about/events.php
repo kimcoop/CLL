@@ -24,7 +24,7 @@ include('../include/header.php');
 		</div>
 		
 		<h3>Upcoming Events</h3>
-			Lorem ipsum
+		<p>Lorem ipsum</p>
 	</div>
 	
 	<div class="text">
@@ -34,7 +34,7 @@ include('../include/header.php');
 		</div>
 		
 		<h3>Calendar</h3>
-			Lorem ipsum
+		<p>Lorem ipsum</p>
 	</div>
 
 </div>

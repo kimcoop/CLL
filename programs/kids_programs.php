@@ -27,17 +27,17 @@ $(function() {
 
 	<div class="text">
 		<h3><a href="saturdays_kids.php">Saturday's Kids</a></h3>
-		<?= $saturdays_kids_about; ?>			
+		<p><?= $saturdays_kids_about; ?></p>
 	</div>	
 	
 	<div class="text">
 		<h3><a href="paws.php">PAWS</a></h3>
-		<?= $paws_about; ?>
+		<p><?= $paws_about; ?></p>
 	</div>
 	
 	<div class="text">
 		<h3><a href="pack.php">PACK</a></h3>	
-		<?= $pack_about; ?>	
+		<p><?= $pack_about; ?></p>
 	</div>
 
 

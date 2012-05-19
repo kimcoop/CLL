@@ -8,18 +8,14 @@ include('include/home_header.php');
 
 
 	<div class="text">
-			<div class="bubble" id="about_bubble">
-				<h2>About</h2>
-			</div>
-				<?= $index_about ?>
+			<div class="bubble" id="about_bubble"><h2>About</h2></div>
+			<p><?= $index_about ?></p>
 	</div>
 	
 	<div class="text">
-			<div class="bubble" id="updates_bubble">
-				<h2>Events</h2>
-			</div>
-				<?= $index_events ?>
-				</div>
+			<div class="bubble" id="updates_bubble"><h2>Events</h2></div>
+			<p><?= $index_events ?></p>
+	</div>
 
 </div>
 

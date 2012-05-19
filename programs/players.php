@@ -26,7 +26,7 @@ $(function() {
 
 	<div class="text">
 		<h3>Stuff</h3>
-			Lorem ipsum
+		<p>Lorem ipsum</p>
 	</div>
 
 </div>
