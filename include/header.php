@@ -167,11 +167,8 @@ $.fn.activate = function() {
 			</ul>
 		</div>	
 	</div> <!-- /#nav_community -->
-</div> <!-- /#nav 
-	
-<img src="../images/header_underline.png" id="header_underline"/>-->
+</div> <!-- /#nav -->
 
-</div>
 
 
 

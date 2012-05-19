@@ -12,14 +12,16 @@ $(function() {
 
 </script>
 
-<div id="container">
-
 <div id="title_container">
 
-		<img src="../images/comm_scene.png" height="150" />
+		<img src="../images/comm_scene.png" height="250" />
 		<h1 id="title">Community Programs</h1>
 
-</div>
+
+</div> <!-- end /#title_container -->
+</div> <!-- /#header -->
+
+<div id="container">
 
 <div class="breadcrumb">
 	<a href="community_programs.php">Community</a> &raquo; Programs for the Community

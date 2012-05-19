@@ -12,14 +12,15 @@ $(function() {
 
 </script>
 
-<div id="container">
-
 <div id="title_container">
 
 		<img src="../images/adult_fitness.png" height="150" />
 		<h1 id="title">Parent Fitness 101</h1>
 
-</div>
+</div> <!-- end /#title_container -->
+</div> <!-- /#header -->
+
+<div id="container">
 
 <div class="breadcrumb">
 	<a href="adults_programs.php">Adults</a> &raquo; Parent Fitness

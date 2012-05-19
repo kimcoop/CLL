@@ -4,14 +4,15 @@ include('../include/header.php');
 
 ?>
 
-<div id="container">
-
 <div id="title_container">
 
 		<img src="../images/calendar.png" height="150" />
 		<h1 id="title">Events</h1>
 
-</div>
+</div> <!-- end /#title_container -->
+</div> <!-- /#header -->
+
+<div id="container">
 
 <div class="breadcrumb">
 	<a href="index.php">About</a> &raquo; Events

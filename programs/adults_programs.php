@@ -13,14 +13,15 @@ $(function() {
 
 </script>
 
-<div id="container">
-
 <div id="title_container">
 
 		<img src="../images/adults.png" height="150" />
 		<h1 id="title">Programs for Adults</h1>
 
-</div>
+</div> <!-- end /#title_container -->
+</div> <!-- /#header -->
+
+<div id="container">
 
 <div class="breadcrumb">
 	<a href="adults_programs.php">Adults</a> &raquo; Programs for Adults

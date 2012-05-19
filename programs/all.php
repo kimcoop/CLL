@@ -12,14 +12,15 @@ $(function() {
 
 </script>
 
-<div id="container">
-
 <div id="title_container">
 
 		<img src="../images/programs_img.png" height="150" />
 		<h1 id="title">All Programs</h1>
 
-</div>
+</div> <!-- end /#title_container -->
+</div> <!-- /#header -->
+
+<div id="container">
 
 <div class="breadcrumb">
 	About &raquo; All Programs

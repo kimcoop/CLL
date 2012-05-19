@@ -12,15 +12,16 @@ $(function() {
 
 </script>
 
-<div id="container">
-
-
 <div id="title_container">
 
 		<img src="../images/kids_pool.png" height="150" />
 		<h1 id="title">PACK</h1>
 
-</div>
+
+</div> <!-- end /#title_container -->
+</div> <!-- /#header -->
+
+<div id="container">
 
 <div class="breadcrumb">
 	<a href="kids_programs.php">Kids</a> &raquo; PACK
