@@ -1,10 +1,12 @@
-#logo {
-	height: 142px;
-	width: 629px;
+
+
+#nav {
+	height: 60px;
 	position: relative;
-	top: -433px;
-	left: 560px;
-	z-index: 98;
+	margin-right: 20px;
+	top: -20px;
+	float: right;
+	border: thick solid purple;
 }
 
 .link {
@@ -12,6 +14,9 @@
 	position: relative;
 	z-index: 5;
 	height: 40px;
+	margin: 0 3px;
+	padding: 0 2px 10px;
+	float: left;
 }
 
 .hover_link {
@@ -23,8 +28,12 @@
 }
 
 .link h2.active {
-	//border: thick solid #EA1D25;
 	color: #003FCF;
+}
+
+.link h2 {
+	font-size: 1.5em;
+	color: #fff;
 }
 
 /*
@@ -35,19 +44,12 @@
 }
 
 #nav_home {
-	width: 114.5px;
-	top: 5px;
-	left: 580px;
-	-webkit-transform: rotate(-1deg); 
-	-moz-transform: rotate(-1deg);
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	width: 93px;
 	background: #000;
 }
 
 #nav_kids {
-	width: 133px;
-	top: 5px;
-	left: 700px;
+	width: 83px;
 	-webkit-transform: rotate(2deg); 
 	-moz-transform: rotate(2deg);
 	-ms-transform:rotate(2deg);
@@ -58,8 +60,6 @@
 
 #nav_adults {
 	width: 158px;
-	top: 4px;
-	left: 840px;
 	-webkit-transform: rotate(1deg); 
 	-moz-transform: rotate(1deg);
 	-ms-transform:rotate(1deg);
@@ -70,23 +70,12 @@
 
 #nav_community {
 	width: 165px;
-	top: 3px;
-	left: 1005px;
 	-webkit-transform: rotate(-6deg); 
 	-moz-transform: rotate(-6deg);
 	-ms-transform:rotate(-6deg);
 	-o-transform:rotate(-6deg);
 	transform: rotate(-6deg);
 	background: #000;
-}
-
-/*
-*/
-
-.link h2 {
-	font-size: 1.5em;
-	padding: 10px;
-	color: #fff;
 }
 
 /*

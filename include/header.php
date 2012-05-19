@@ -83,31 +83,36 @@ $.fn.activate = function() {
 	<a href="http://find.pitt.edu/" id="find_people">Find People</a>	
 </div>
 
-<a href="<? echo SITE_ROOT ?>"/><img id="logo" src="../images/logo.png"/></a>
+<a href="<? echo SITE_ROOT ?>"/>
+	<img id="logo" src="../images/logo.png"/>
+</a>
+
+<div class="clearfix"></div>
+
+<div id="nav">
 
 	<div class="link" id="nav_home">
 		<h2>About</h2>
 		<div class="menu">
-		
-			<ul>
-				<li>
-					<a href="../programs/all.php">Our Programs</a><br>
-					See what's available				
-				</li>
-				<li>
-					<a href="../about/events.php">Events</a><br>
-					Calendar & upcoming
-				</li>
-				<li>
-					<a href="../about/location.php">Location</a><br>
-					Trees Hall info
-				</li>
-				<li>
-					<a href="../about/contact.php">Contact</a><br>
-					Get in touch with us
-				</li>
-			</ul>	
-			</div>
+				<ul>
+					<li>
+						<a href="../programs/all.php">Our Programs</a><br>
+						See what's available				
+					</li>
+					<li>
+						<a href="../about/events.php">Events</a><br>
+						Calendar & upcoming
+					</li>
+					<li>
+						<a href="../about/location.php">Location</a><br>
+						Trees Hall info
+					</li>
+					<li>
+						<a href="../about/contact.php">Contact</a><br>
+						Get in touch with us
+					</li>
+				</ul>	
+		</div>
 	</div> <!-- /#nav_home -->
 	
 	<div class="link" id="nav_kids">
@@ -162,8 +167,9 @@ $.fn.activate = function() {
 			</ul>
 		</div>	
 	</div> <!-- /#nav_community -->
+</div> <!-- /#nav 
 	
-<img src="../images/header_underline.png" id="header_underline"/>
+<img src="../images/header_underline.png" id="header_underline"/>-->
 
 </div>
 

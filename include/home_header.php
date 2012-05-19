@@ -86,6 +86,10 @@ $.fn.active_hover = function() {
 
 <a href="<? echo SITE_ROOT ?>"/><img id="logo" src="../images/logo.png"/></a>
 
+<div class="clearfix"></div>
+
+<div id="nav">
+
 	<div class="link" id="nav_home">
 		<div id="arrow_home"></div>
 		<h2>About</h2>
@@ -166,13 +170,14 @@ $.fn.active_hover = function() {
 			</ul>
 		</div>	
 	</div> <!-- /#nav_community -->
+</div><!-- /#nav 
 
 <img src="../images/header_underline.png" id="header_underline"/>
 <img src="../images/header_overline.png" id="header_overline"/>
 
 <img src="../images/adults.png" height="80" id="img_adults"/>
 <img src="../images/kids_jumping.png" height="120" id="img_kids"/>
-<img src="../images/comm_scene.png" height="80" id="img_comm" />
+<img src="../images/comm_scene.png" height="80" id="img_comm" />-->
 
 </div>
 

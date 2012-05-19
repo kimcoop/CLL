@@ -33,6 +33,14 @@ body {
 	z-index: 4;
 }
 
+#logo {
+	height: 142px;
+	width: 629px;
+	position: relative;
+	float: right;
+	z-index: 98;
+}
+
 #header {
 	background: url('../images/banner_bg.png') no-repeat top center;
 	width: 1200px;
@@ -161,4 +169,8 @@ h2 {
 h2.small {
 	padding-top: 3px;
 	font-size: 1em;
+}
+
+.clearfix {
+	clear: both;
 }
