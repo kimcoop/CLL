@@ -10,9 +10,10 @@
 
 <title>Community Leisure-Learn | Home</title>
 
-<link type="text/css" rel="stylesheet" href="../style/base.css"/>
-<link type="text/css" rel="stylesheet" href="../style/nav.css"/>
-<link type="text/css" rel="stylesheet" href="../style/inside.css"/>
+<link type="text/css" rel="stylesheet" href="style/base.css"/>
+<link type="text/css" rel="stylesheet" href="style/nav.css"/>
+<link type="text/css" rel="stylesheet" href="style/home_nav.css"/>
+
 <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -22,24 +23,29 @@
 
 $(function() {
 
-	$('#nav_home').click(function() {
-		window.location = '../index.php';
-	});
-
 	$('#nav_kids').click(function() {
-		window.location = 'kids_programs.php';	
+		window.location = 'programs/kids_programs.php';	
 	});
 	
 	$('#nav_adults').click(function() {
-		window.location = 'adults_programs.php';
+		window.location = 'programs/adults_programs.php';
 	});
 	
 	$('#nav_community').click(function() {
-		window.location = 'community_programs.php';
+		window.location = 'programs/community_programs.php';
+	});
+	
+	$('.menu').each(function() {
+		el = $(this);
+		width = el.siblings('h2').width()/4;
+		el.css({
+			'left':'-'+width+'px'
+		});	
 	});
 
 	$('.link').mouseover(function() {
 		el = $(this);
+		w = el.width()/4;
 		el.siblings('.link').removeClass('hover_link');
 		el.active_hover();
 		el.children('.menu').show();
@@ -55,19 +61,12 @@ $(function() {
 		parent = el.parent('.link');
 		parent.active_hover();
 	});
-	
-	//$('.link').css('top', '+=170px');
 
 });
 
 $.fn.active_hover = function() {
 	$(this).addClass('hover_link');	
 	$(this).siblings('.link').removeClass('hover_link');
-};
-
-$.fn.activate = function() {
-	$('.link h2').removeClass('active');
-	$(this).children('h2').addClass('active');
 };
 
 </script>
@@ -83,9 +82,12 @@ $.fn.activate = function() {
 	<a href="http://find.pitt.edu/" id="find_people">Find People</a>	
 </div>
 
+<img id="kids_img" src="images/kids.png"/>
+
 <a href="<? echo SITE_ROOT ?>"/><img id="logo" src="../images/logo.png"/></a>
 
 	<div class="link" id="nav_home">
+		<div id="arrow_home"></div>
 		<h2>About</h2>
 		<div class="menu">
 		
@@ -111,8 +113,9 @@ $.fn.activate = function() {
 	</div> <!-- /#nav_home -->
 	
 	<div class="link" id="nav_kids">
+		<div id="arrow_kids"></div>
 		<h2>Kids</h2>
-		<div id="nav_kids_menu" class="menu">
+		<div class="menu">
 			<ul>
 				<li>
 					<a href="../programs/pack.php">PACK</a><br>
@@ -133,7 +136,7 @@ $.fn.activate = function() {
 	
 	<div class="link" id="nav_adults">
 		<h2>Adults</h2>
-		<div id="nav_adults_menu" class="menu">
+		<div class="menu">
 			<ul>
 				<li>
 					<a href="../programs/parent_fitness.php">Parent Fitness</a><br>
@@ -148,8 +151,9 @@ $.fn.activate = function() {
 	</div> <!-- /#nav_adults -->
 	
 	<div class="link" id="nav_community">
+		<div id="arrow_community"></div>
 		<h2>Community</h2>
-		<div id="nav_comm_menu" class="menu">
+		<div class="menu">
 			<ul>
 				<li>
 					<a href="../programs/parent_fitness.php">Stuff 1</a><br>
@@ -162,8 +166,13 @@ $.fn.activate = function() {
 			</ul>
 		</div>	
 	</div> <!-- /#nav_community -->
-	
+
 <img src="../images/header_underline.png" id="header_underline"/>
+<img src="../images/header_overline.png" id="header_overline"/>
+
+<img src="../images/adults.png" height="80" id="img_adults"/>
+<img src="../images/kids_jumping.png" height="120" id="img_kids"/>
+<img src="../images/comm_scene.png" height="80" id="img_comm" />
 
 </div>
 

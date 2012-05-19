@@ -33,14 +33,6 @@ body {
 	z-index: 4;
 }
 
-#clouds {
-	z-index: 3;
-	height: 240px;
-	position: relative;
-	left: 447px;
-	top: -700px;
-}
-
 #header {
 	background: url('../images/banner_bg.png') no-repeat top center;
 	width: 1200px;
@@ -60,6 +52,7 @@ body {
 	border-top: 0;
 	border-bottom: 0;
 	padding: 3px 0;
+	overflow: hidden;
 }
 
 #footer {

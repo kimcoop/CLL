@@ -1,0 +1,84 @@
+
+#nav_home {
+	top: -420px;
+	left: 680px;
+	-webkit-transform: rotate(-2deg); 
+	-moz-transform: rotate(-2deg);
+	-ms-transform:rotate(-2deg); /* IE 9 */
+	-o-transform:rotate(-2deg); /* Opera */
+	transform: rotate(-2deg);
+	background: #000;
+}
+
+#nav_kids {
+	top: -313px;
+	left: 700px;
+	width: 180px;
+}
+
+#nav_adults {
+	top: -500px;
+	left: 970px;
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg);
+	-ms-transform:rotate(-5deg); /* IE 9 */
+	-o-transform:rotate(-5deg); /* Opera */
+	transform: rotate(-5deg);
+	background: #000;
+}
+
+#nav_community {
+	top: -418px;
+	left: 1005px;
+}
+
+#arrow_kids {
+/*
+	background: url('../images/arrow_1.png') repeat top center;
+	height: 107px;
+	width: 103px;
+	position: relative;
+	left: -40px;
+	top: -50px;
+	z-index: 5;
+	*/
+}
+
+/*
+*/
+
+#img_adults {
+	position: relative;
+	z-index: 3;
+	top: -780px;
+	left: 980px;
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg);
+	-ms-transform:rotate(-5deg); /* IE 9 */
+	-o-transform:rotate(-5deg); /* Opera */
+	transform: rotate(-5deg);
+}
+
+#img_kids {
+	position: relative;
+	z-index: 3;
+	top: -655px;
+	left: 580px;
+	-webkit-transform: rotate(2deg); 
+	-moz-transform: rotate(2deg);
+	-ms-transform:rotate(2deg); /* IE 9 */
+	-o-transform:rotate(2deg); /* Opera */
+	transform: rotate(2deg);
+}
+
+#img_comm {
+	position: relative;
+	z-index: 3;
+	top: -640px;
+	left: 640px;
+	-webkit-transform: rotate(-3deg); 
+	-moz-transform: rotate(-3deg);
+	-ms-transform:rotate(-3deg);
+	-o-transform:rotate(-3deg);
+	transform: rotate(-3deg);
+}

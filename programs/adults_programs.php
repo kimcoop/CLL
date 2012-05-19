@@ -1,6 +1,7 @@
 <?
 
-include('../include/inside_header.php');
+include('../include/header.php');
+
 
 ?>
 

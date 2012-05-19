@@ -36,7 +36,7 @@
 
 #nav_home {
 	width: 114.5px;
-	top: -475px;
+	top: 5px;
 	left: 580px;
 	-webkit-transform: rotate(-1deg); 
 	-moz-transform: rotate(-1deg);
@@ -46,7 +46,7 @@
 
 #nav_kids {
 	width: 133px;
-	top: -535px;
+	top: 5px;
 	left: 700px;
 	-webkit-transform: rotate(2deg); 
 	-moz-transform: rotate(2deg);
@@ -58,7 +58,7 @@
 
 #nav_adults {
 	width: 158px;
-	top: -594px;
+	top: 4px;
 	left: 840px;
 	-webkit-transform: rotate(1deg); 
 	-moz-transform: rotate(1deg);
@@ -70,7 +70,7 @@
 
 #nav_community {
 	width: 165px;
-	top: -663px;
+	top: 3px;
 	left: 1005px;
 	-webkit-transform: rotate(-6deg); 
 	-moz-transform: rotate(-6deg);
