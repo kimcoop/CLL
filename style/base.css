@@ -18,9 +18,11 @@ body {
 	color: #ccc;
 	width: 100%;
 	background: #ccc;
-	background: url('../images/arches.png') repeat top center;
-	background: #ccc;
+	//background: url('../images/arches.png') repeat top center;
+	//background: #005F3B;
+	//background: #fff;
 	//background: url('../images/kids_boxing.png') no-repeat top center;
+	//background: url('../images/background-pattern.png') repeat top left;
 	//background-attachment: fixed;
 	//background-size: 100%;
 	margin: 0;
@@ -54,7 +56,6 @@ body {
 	overflow: hidden;
 	line-height: 1.3em;
 	background: #005F3B;
-	//background: url('../images/background-pattern.png') repeat top left;
 	margin: 0px auto;
 	border: 6px solid #000;
 }
