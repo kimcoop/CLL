@@ -18,22 +18,26 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	<script type='text/javascript' src='jquery.min.js'></script>
 	<script type='text/javascript' src='wymeditor/jquery.wymeditor.pack.js'></script>
 	<script type='text/javascript'>
-	$(function(){ 
+	$(function() { 
+	
 	  $("#page-code").wymeditor({
-		skin: "minimal",
-		skinPath: 'wymeditor/skins/minimal/',
-		toolsHtml: '',
-		classesHtml: ''
+			skin: "minimal",
+			skinPath: 'wymeditor/skins/minimal/',
+			toolsHtml: '',
+			classesHtml: ''
 	  });
+	  
 	  $("#page-code-save").hide().after("<a class='submit' id='pseudo-submit'>save</a>");
-	  $("#pseudo-submit").click(function(){
-		var before = $("#page-code").text().split("<body>")[0] + "<body>";
-		var after = "</body>" + $("#page-code").text().split("</body>")[1];
-		var code = jQuery.wymeditors(0).xhtml();
-		$("#page-code").text(before + code + after);
-		$("#editor").submit();
-		return false;
+	  
+	  $("#pseudo-submit").click(function() {
+			var before = $("#page-code").text().split("<body>")[0] + "<body>";
+			var after = "</body>" + $("#page-code").text().split("</body>")[1];
+			var code = jQuery.wymeditors(0).xhtml();
+			$("#page-code").text(before + code + after);
+			$("#editor").submit();
+			return false;
 	  });
+	  
 	});
 	</script>
 </head>
@@ -51,7 +55,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 		echo "</ul>";
 
 		/*if a page was saved*/
-		if(!empty($_POST['page-code'])) {
+		if (!empty($_POST['page-code'])) {
 
 			/*fix any textarea tags, strip slashes and attempt to save file*/
 			$saved_file = file_put_contents($editable_pages[$_GET['page']], stripslashes(str_replace("</*textarea*>","</textarea>",$_POST['page-code'])));
@@ -71,7 +75,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 		/*If it worked*/
 		if ($page_content) {
 			/*obfuscate any textarea tags that would mess up the display and print content inside a textarea*/
-			echo "<textarea name='page-code' id='page-code'>" .str_replace("</textarea>","</*textarea*>",$page_content). "</textarea><br />";
+			echo "<textarea name='page-code' id='page-code'>" .str_replace("</textarea>","</*textarea*>", $page_content). "</textarea><br />";
 
 			/*Now create a save button*/
 			echo "<input type='submit' class='submit' id='page-code-save' name='page-code-save' value='save'/>";
