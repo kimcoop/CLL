@@ -8,15 +8,15 @@ $(function() {
 	});
 
 	$('#nav_kids').click(function() {
-		window.location = 'kids_programs.php';	
+		window.location = '../programs/kids_programs.php';	
 	});
 	
 	$('#nav_adults').click(function() {
-		window.location = 'adults_programs.php';
+		window.location = '../programs/adults_programs.php';
 	});
 	
 	$('#nav_community').click(function() {
-		window.location = 'community_programs.php';
+		window.location = '../programs/community_programs.php';
 	});
 
 	$('.link').mouseover(function() {
