@@ -1,4 +1,6 @@
 <?
+	session_start();
+
 	$GLOBALS['root'] = 'http://localhost:8888'; // change this when site changes domains/hosts
 
 	$path =  $_SERVER['DOCUMENT_ROOT'];

@@ -117,6 +117,9 @@ if (isset($_POST['password']) && md5($_POST['password']) != $pass) {
 
 if ($_SESSION['admin'] == 'admin') {
 ?>
+	<style>
+	#pw_form { display:none; }
+	</style>
 	<div id="logout" class="link"><h2><a href="?do=logout">Logout&nbsp;&raquo;</a></h2></div>
 
 	<form id="editor" method="post" action="<? $_SERVER['PHP_SELF']; ?>">
