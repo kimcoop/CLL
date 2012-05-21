@@ -9,7 +9,6 @@
 
 #nav_kids {
 	top: 63px;
-	left: 0px;
 	width: 144px;
 }
 
@@ -26,49 +25,4 @@
 #nav_community {
 	top: 110px;
 	left: -20px;
-}
-
-#img_adults {
-	position: relative;
-	z-index: 3;
-	top: -115px;
-	left: 70px;
-	-webkit-transform: rotate(-5deg); 
-	-moz-transform: rotate(-5deg);
-	-ms-transform:rotate(-5deg);
-	-o-transform:rotate(-5deg);
-	transform: rotate(-5deg);
-}
-
-#img_kids {
-	position: relative;
-	z-index: 3;
-	top: -30px;
-	left: -10px;
-	-webkit-transform: rotate(2deg); 
-	-moz-transform: rotate(2deg);
-	-ms-transform:rotate(2deg); 
-	-o-transform:rotate(2deg);
-	transform: rotate(2deg);
-}
-
-#img_comm {
-	position: relative;
-	z-index: 3;
-	top: 20px;
-	left: -10px;
-	-webkit-transform: rotate(-3deg); 
-	-moz-transform: rotate(-3deg);
-	-ms-transform:rotate(-3deg);
-	-o-transform:rotate(-3deg);
-	transform: rotate(-3deg);
-}
-
-.home_img {
-	float: left;
-}
-
-#home_images {
-	margin-top: 50px;
-	float: right;
 }

@@ -36,8 +36,6 @@ $(function() {
 		parent = el.parent('.link');
 		parent.active_hover();
 	});
-	
-	//$('.link').css('top', '+=170px');
 
 });
 

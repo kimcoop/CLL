@@ -17,15 +17,7 @@ body {
 	font-family:"Helvetica Neue Light", Helvetica, Arial, sans-serif;
 	color: #ccc;
 	width: 100%;
-	background: #ccc;
-	//background: url('../images/arches.png') repeat top center;
-	//background: #005F3B;
-	//background: #fff;
-	//background: url('../images/kids_boxing.png') no-repeat top center;
-	//background: url('../images/background-pattern.png') repeat top left;
-	//background-attachment: fixed;
-	//background-size: 100%;
-	margin: 0;
+	background: #809FE7;
 	font-size: 12pt;
 	letter-spacing: -0.07em;
 	margin: 0px auto;
@@ -35,6 +27,7 @@ body {
 	height: 142px;
 	width: 629px;
 	position: relative;
+	top: -10px;
 	float: right;
 	z-index: 98;
 }
@@ -46,24 +39,28 @@ body {
 	margin: 0px auto;
 	margin-top: 5px;
 	border: 6px solid #000;
+	border-top-right-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	-moz-border-top-left-radius: 10px;
+	border-bottom: 0;
 }
 
 #container {
 	width: 1200px;
-	border-top: 0;
-	border-bottom: 0;
 	padding: 3px 0;
 	overflow: hidden;
 	line-height: 1.3em;
 	background: #005F3B;
 	margin: 0px auto;
 	border: 6px solid #000;
+	border-bottom: 0;
 }
 
 #footer {
 	width: 1200px;
 	border: 6px solid #000;
-	border-top:0; 
+	border-top: 2px solid #000; 
 	margin: 0px auto;
 	margin-bottom: 20px;
 	text-align: center;
@@ -72,11 +69,15 @@ body {
 	font-family: Palatino, times;
 	background: #003FCF;
 	color: #ccc;
+	border-bottom-right-radius: 10px;
+	-moz-border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-moz-border-bottom-left-radius: 10px;
 }
 
 .text {
 	margin: 0px auto;
-	width: 820px;
+	width: 800px;
 	min-height: 30px;
 	margin: 40px auto;
 	padding: 15px 8px 10px 8px;
@@ -100,10 +101,10 @@ body {
 	background: url('../images/bubble.png') no-repeat top center;
 	height: 90px;
 	width: 91px;
-	margin: -25px 0 0 -120px;
 	padding: 20px 0;
 	position: absolute;
 	z-index: 4;
+	margin: -25px 0 0 -120px;
 	font-family: times;
 	color: #000;
 	text-align: top;
@@ -143,9 +144,14 @@ a:hover {
 }
 
 h1, h2 {
+font-weight: normal;
 	color: #EA1D25;
 	font-family: 'Permanent Marker', "Helvetica Neue Light", Helvetica, cursive;
 	text-shadow: 1px 1px 0px #ccc;
+}
+
+h1 {
+	color: #003FCF;
 }
 
 h3 {
@@ -186,8 +192,23 @@ h2.small {
 }
 
 .go:hover {
+	cursor: pointer;
+	text-decoration: none;
 	width: 20px;
 	height: 20px;
 	display: inline;
 	background: url('../images/go_hover.png') no-repeat top center;
+}
+
+
+input[type="password"], input[type="search"], 
+input[type="text"], input[type="textbox"], 
+input[type="textarea"], textarea, input[type="email"] {
+	border: 1px #C7C7C7 solid;
+	color: #333;
+	cursor: pointer;
+	padding: 0.1em 0.4em 0.1em 0.4em;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	cursor: text;
 }

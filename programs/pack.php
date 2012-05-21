@@ -29,17 +29,17 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		<p><?= $pack; ?></p>
+		<p><?= grab('pack'); ?></p>
 	</div>
 
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		<p><?= $pack_when; ?></p>
+		<p><?= grab('pack_when'); ?></p>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>
-		<p><?= $pack_cost; ?></p>
+		<p><?= grab('pack_cost'); ?></p>
 	</div>
 	
 	<div class="text">

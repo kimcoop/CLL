@@ -29,12 +29,12 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		<p><?= $guest_pass_about; ?></p>
+		<p><?= grab('guest_pass_about'); ?></p>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		<p><?= $guest_pass_when; ?></p>
+		<p><?= grab('guest_pass_when'); ?></p>
 	</div>
 
 </div>
