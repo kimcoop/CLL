@@ -60,13 +60,23 @@ if (!isset($_SESSION['admin']) && !isset($_GET['do'])) {
 	</script>
 	
 <style>
+
+body {
+	//background: #1B7;
+	//background: #ddd;
+}
+
+#cover {
+	background: transparent;
+}
+
 #container {
 	width: auto;
 	min-width: 500px;
 	max-width: 1200px;
 	min-height: 420px;
 	border: 6px solid #000;
-	background: #fff;
+	background: #fafafa;
 	color: #333;
 	border-radius: 10px;
 	-moz-border-radius: 10px;

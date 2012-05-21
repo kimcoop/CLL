@@ -2,7 +2,7 @@
 </div><!-- end container -->
 	
 		<div id="footer">
-			Copyright 2012 University of Pittsburgh&nbsp;|
+			&#169;&nbsp;2012 University of Pittsburgh&nbsp;|
 			
 			<? if ($_SESSION['admin'] == 'admin') { ?>
 		

@@ -1,21 +1,17 @@
-/*#nav {
+#nav {
 	top: 100px;
+        float: none;
 }
 
 #nav_home {
-	top: -90px;
-	left: 60px;
+	top: -190px;
+	left: 420px;
 }
 
 #nav_kids {
-	top: 70px;
-	left: 48px;
+	top: 25px;
+	left: 15px;
 	width: 184px;
-}
-
-#nav_adults {
-	top: -20px;
-	left: 130px;
 	-webkit-transform: rotate(-5deg); 
 	-moz-transform: rotate(-5deg);
 	-ms-transform:rotate(-5deg);
@@ -23,8 +19,18 @@
 	transform: rotate(-5deg);
 }
 
+#nav_adults {
+	top: 90px;
+	left: 150px;
+	-webkit-transform: rotate(3deg); 
+	-moz-transform: rotate(3deg);
+	-ms-transform:rotate(3deg);
+	-o-transform:rotate(3deg);
+	transform: rotate(3deg);
+}
+
 #nav_community {
-	top: 109px;
-	left: -20px;
+	top: 105px;
+	left: 410px;
 	width: 200px;
-}*/
+}
