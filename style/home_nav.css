@@ -1,16 +1,40 @@
+#nav_home_menu {
+	left: -24px;
+}
+
+#nav_kids_menu {
+	left: -4px;
+}
+
+#nav_adults_menu {
+	left: -18px;
+}
+
+#nav_comm_menu {
+	left: 6px;
+}
+
+
 #nav {
 	top: 100px;
-        float: none;
+  float: none;
+}
+
+.link h2 {
+	padding: 0 11px 5px 0;
+	margin-right: 18px;
+	background: transparent url('../images/go.png') no-repeat center right;
 }
 
 #nav_home {
+	width: 140px;
 	top: -190px;
-	left: 420px;
+	left: 410px;
 }
 
 #nav_kids {
 	top: 25px;
-	left: 15px;
+	left: -15px;
 	width: 184px;
 	-webkit-transform: rotate(-5deg); 
 	-moz-transform: rotate(-5deg);
@@ -21,16 +45,34 @@
 
 #nav_adults {
 	top: 90px;
-	left: 150px;
-	-webkit-transform: rotate(3deg); 
-	-moz-transform: rotate(3deg);
-	-ms-transform:rotate(3deg);
-	-o-transform:rotate(3deg);
-	transform: rotate(3deg);
+	left: 120px;
+	-webkit-transform: rotate(4deg); 
+	-moz-transform: rotate(4deg);
+	-ms-transform:rotate(4deg);
+	-o-transform:rotate(4deg);
+	transform: rotate(4deg);
 }
 
 #nav_community {
 	top: 105px;
-	left: 410px;
+	left: 380px;
 	width: 200px;
+}
+
+.text {
+	float: right;
+	margin: 15px 0 10px;
+}
+
+#home_text {
+	width: 65%;
+	float: left;
+}
+
+#home_img {
+	height: 250px;
+	width: 280px;
+	padding: 0 20px;
+	text-align: center;
+	float: left;
 }

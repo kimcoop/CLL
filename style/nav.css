@@ -1,4 +1,23 @@
+#nav_home_menu {
+	left: -42px;
+}
 
+#nav_kids_menu {
+	left: -48px;
+}
+
+#nav_adults_menu {
+	left: -15px;
+}
+
+#nav_comm_menu {
+	left: -11px;
+}
+
+
+/*
+*
+*/
 
 #nav {
 	height: 60px;
@@ -11,8 +30,8 @@
 .link {
 	width: 100%;
 	position: relative;
+	height: 35px;
 	z-index: 5;
-	height: 40px;
 	margin: 0 3px;
 	padding: 0 2px 10px;
 	float: left;
@@ -32,6 +51,7 @@
 
 .link h2 {
 	font-size: 1.5em;
+	margin-top: 10px;
 	color: #fafafa;
 }
 

@@ -74,7 +74,7 @@ $.fn.activate = function() {
 	
 		<div class="link" id="nav_home">
 			<h2>About</h2>
-			<div class="menu">
+			<div id="nav_home_menu" class="menu">
 					<ul>
 						<li>
 							<a href="<?= $GLOBALS['root'] ?>/programs/all.php">Our Programs</a><br>
