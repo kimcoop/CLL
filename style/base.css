@@ -14,13 +14,13 @@
 }
 
 body {
-	font-family:"Helvetica Neue Light", Helvetica, Arial, sans-serif;
 	color: #ccc;
 	width: 100%;
 	background: #809FE7;
 	font-size: 12pt;
 	letter-spacing: -0.07em;
 	margin: 0px auto;
+	font-family: Palatino, times;
 }
 
 #logo {
@@ -144,7 +144,7 @@ a:hover {
 }
 
 h1, h2 {
-font-weight: normal;
+	font-weight: normal;
 	color: #EA1D25;
 	font-family: 'Permanent Marker', "Helvetica Neue Light", Helvetica, cursive;
 	text-shadow: 1px 1px 0px #ccc;
@@ -157,6 +157,7 @@ h1 {
 h3 {
 	margin: 0;
 	text-shadow: 1px 1px 0px #ccc;
+	font-family:"Helvetica Neue Light", Helvetica, Arial, sans-serif;
 }
 
 .text h3 a, .text a {
@@ -190,16 +191,6 @@ h2.small {
 	display: inline;
 	background: url('../images/go.png') no-repeat top center;
 }
-
-.go:hover {
-	cursor: pointer;
-	text-decoration: none;
-	width: 20px;
-	height: 20px;
-	display: inline;
-	background: url('../images/go_hover.png') no-repeat top center;
-}
-
 
 input[type="password"], input[type="search"], 
 input[type="text"], input[type="textbox"], 

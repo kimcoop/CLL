@@ -28,12 +28,12 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		<p><?= grab('parent_fitness'); ?></p>
+		<?= grab('parent_fitness'); ?>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		<p><?= grab('parent_fitness_when'); ?></p>
+		<?= grab('parent_fitness_when'); ?>
 	</div>
 
 </div>

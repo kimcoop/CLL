@@ -33,13 +33,13 @@ $(function() {
 		</div>
 		
 			<h3><a href="saturdays_kids.php">Saturday's Kids</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
-			<p><?= grab('sat_kids_about'); ?></p>
+			<?= grab('sat_kids_about'); ?>
 	
 			<h3><a href="paws.php">PAWS</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
-			<p><?= grab('paws_about'); ?></p>
+			<?= grab('paws_about'); ?>
 			
 			<h3><a href="pack.php">PACK</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>	
-			<p><?= grab('pack_about'); ?></p>
+			<?= grab('pack_about'); ?>
 			
 	</div>
 	
@@ -50,10 +50,10 @@ $(function() {
 		</div>
 			
 			<h3><a href="parent_fitness.php">Parent Fitness 101</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
-			<p><?= grab('parent_fitness_about'); ?></p>
+			<?= grab('parent_fitness_about'); ?>
 			
 			<h3><a href="guest_pass.php">Guest Pass</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
-			<p><?= grab('guest_pass_about'); ?></p>
+			<?= grab('guest_pass_about'); ?>
 	</div>
 
 	<div class="text">

@@ -28,12 +28,12 @@ $(function() {
 </div>
 
 	<div class="text">
-		<h3><a href="parent_fitness.php">Parent Fitness 101<div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></a></h3>
-		<p><?= grab('parent_fitness_about'); ?></p>
+		<h3><a href="parent_fitness.php">Parent Fitness 101</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
+		<?= grab('parent_fitness_about'); ?>
 	</div>	
 	<div class="text">
-		<h3><a href="guest_pass.php">Guest Pass<div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></a></h3>
-		<p><?= grab('guest_pass_about'); ?></p>
+		<h3><a href="guest_pass.php">Guest Pass</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
+		<?= grab('guest_pass_about'); ?>
 	</div>
 
 </div>

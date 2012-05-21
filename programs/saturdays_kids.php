@@ -31,22 +31,22 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>	
-		<p><?= grab('sat_kids'); ?></p>
+		<?= grab('sat_kids'); ?>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>	
-		<p><?= grab('sat_kids_when'); ?></p>
+		<?= grab('sat_kids_when'); ?>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Where</h2></div>	
-		<p><?= grab('sat_kids_where'); ?></p>
+		<?= grab('sat_kids_where'); ?>
 	</div>
 
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>	
-		<p><?= grab('sat_kids_cost'); ?></p>
+		<?= grab('sat_kids_cost'); ?>
 	</div>
 
 </div>

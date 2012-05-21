@@ -107,7 +107,7 @@ $.fn.activate = function() {
 					Fall & Spring, grades pre-K - 8
 				</li>
 				<li>
-					<a href=<?= $GLOBALS['root'] ?>./programs/paws.php">PAWS</a><br>
+					<a href="<?= $GLOBALS['root'] ?>/programs/paws.php">PAWS</a><br>
 					Spring, grades 5 - 8
 				</li>
 			</ul>

@@ -28,22 +28,22 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		<p><?= grab('paws'); ?></p>
+		<?= grab('paws'); ?>
 		</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		<p><?= grab('paws_when'); ?></p>
+		<?= grab('paws_when'); ?>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Where</h2></div>
-		<p><?= grab('paws_where'); ?></p>
+		<?= grab('paws_where'); ?>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>
-		<p><?= grab('paws_cost'); ?></p>
+		<?= grab('paws_cost'); ?>
 	</div>
 
 </div>

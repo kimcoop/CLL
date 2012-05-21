@@ -22,7 +22,7 @@ include('../include/header.php');
 		<h3>Trees Hall</h3>	
 		
 		<div style="float: left; width: 200px; padding: 30px 4px">
-			<p>Allequippa St and Darragh St Pittsburgh, Pennsylvania 15213</p>
+			<?= grab('location'); ?>
 			<a target="_blank" href="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;q=trees+hall,+pittsburgh+pa&amp;fb=1&amp;gl=us&amp;hq=trees+hall,+pittsburgh+pa&amp;hnear=trees+hall,+pittsburgh+pa&amp;cid=0,0,1415057620280571578&amp;ll=40.443254,-79.965189&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left">Click to view a larger map</a>	
 		</div>
 

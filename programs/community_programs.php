@@ -24,17 +24,12 @@ $(function() {
 <div id="container">
 
 <div class="breadcrumb">
-	<a href="community_programs.php">Community</a> &raquo; Programs for the Community
+	<a href="community_programs.php">Community</a> &raquo; Community Events
 </div>
 
 	<div class="text">
 		<h3>asdf</h3>
 		<p>asdf</p>
-	</div>	
-	
-	<div class="text">
-		<h3>asdf</h3>
-		<p>asdfasdf</p>
 	</div>
 
 </div>
