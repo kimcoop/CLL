@@ -23,9 +23,8 @@ include('../include/header.php');
 		<div class="bubble">
 			<h2 class="small">Upcoming<br>Events</h2>
 		</div>
-		
 		<h3>Upcoming Events</h3>
-		<p>Lorem ipsum</p>
+		<?= grab('events'); ?>
 	</div>
 	
 	<div class="text">
