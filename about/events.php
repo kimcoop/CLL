@@ -37,7 +37,6 @@ include('../include/header.php');
 		<p>Lorem ipsum</p>
 	</div>
 
-</div>
 
 <?
 

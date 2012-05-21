@@ -32,7 +32,7 @@ $(function() {
 		<p>Lorem ipsum</p>
 	</div>
 
-</div>
+
 
 <?
 

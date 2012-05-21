@@ -48,8 +48,7 @@ $(function() {
 		<div class="bubble"><h2>Cost</h2></div>	
 		<?= grab('sat_kids_cost'); ?>
 	</div>
-
-</div>
+	
 
 <?
 

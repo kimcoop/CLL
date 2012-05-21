@@ -1,11 +1,9 @@
 body {
 	color: #ccc;
 	width: 100%;
-	background: #809FE7;
-	background: url('../images/grassy_bg_v2.jpg') no-repeat top center;
 	background: url('../images/sunny_wallpaper_v2.jpg') no-repeat top center;
-	background: #fafafa;
-	//background: url('../images/grassy_bg_v2.jpg') no-repeat top center;
+	background: url('../images/grassy_bg_v2.jpg') no-repeat top center;
+	background-attachment: fixed;
 	background-size: 100%;
 	font-size: 12pt;
 	letter-spacing: -0.07em;
@@ -25,36 +23,47 @@ body {
 #header {
 	background: url('../images/pattern_black.png') repeat top left;
 	background: url('../images/pattern_blue.png') repeat top left;
-	background: #FFED00;
 	background: #ddd;
 	background: url('../images/banner.png') no-repeat top center;
-	
+	background: #ddff77;
 	width: 1200px;
 	height: 440px;
-	margin: 5px auto;
-	margin-bottom: 0;
 	border: 6px solid #000;
 	border-bottom: 0;
+	margin: 15px auto;
+	margin-bottom: 0;
+}
+
+#cover {
+	background: url('../images/pattern_black.png') left top repeat;
+	position: absolute;
+  left: 0;
+  top: 0px;
+  right: 0;
+  bottom: 0;
+  background-attachment: fixed;
+  z-index: 0;
+  height: 110%;
+}
+
+body > #container {
+  position: relative;
+  z-index: 1;
 }
 
 #container {
 	width: 1200px;
 	padding: 3px 0;
-	overflow: hidden;
 	line-height: 1.3em;
-	background: #005F3B;
-	margin: 15px auto;
+	margin: 0px auto;
 	border: 6px solid #000;
 	border-bottom: 0;
-	//background: url('../images/pattern_blue.png') repeat top left;
-	//background: url('../images/pattern_black.png') repeat top left;
-
+	background: #005F3B;
+	background: #11bb77;
 }
 
 #footer {
 	width: 1200px;
-	border: 6px solid #000;
-	border-top: 2px solid #000; 
 	margin: 0px auto;
 	margin-bottom: 20px;
 	text-align: center;
@@ -63,10 +72,8 @@ body {
 	font-family: Palatino, times;
 	background: #003FCF;
 	color: #ccc;
-	border-bottom-right-radius: 10px;
-	-moz-border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	-moz-border-bottom-left-radius: 10px;
+	border: 6px solid #000;
+	border-top: 2px solid #000;
 }
 
 .text {
@@ -74,13 +81,12 @@ body {
 	width: 800px;
 	min-height: 30px;
 	margin: 40px auto;
-	padding: 15px 8px 10px 8px;
+	padding: 10px 8px 10px 8px;
 	-moz-box-shadow: 4px 4px 0 #000;
 	-webkit-box-shadow: 4px 4px 0 #000;
 	box-shadow: 5px 5px 0 #000;	
 	color: #000;
 	background: #fafafa;
-	border: 1px solid #fafafa;
 }
 
 .text p {
@@ -93,12 +99,12 @@ body {
 
 .bubble {
 	background: url('../images/bubble.png') no-repeat top center;
-	height: 90px;
+	height: 91px;
 	width: 91px;
 	padding: 20px 0;
 	position: absolute;
 	z-index: 4;
-	margin: -25px 0 0 -120px;
+	margin: -10px 0 0 -120px;
 	font-family: times;
 	color: #000;
 	text-align: top;
@@ -176,6 +182,21 @@ h2.small {
 
 .clearfix {
 	clear: both;
+}
+
+.clearfix {
+  zoom: 1;/* for IE < 8 */
+}
+
+.clearfix:before, .clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.clearfix:after {
+  clear: both;
 }
 
 .go {

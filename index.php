@@ -1,11 +1,6 @@
-<?
-
-include('include/home_header.php');
-
-?>
+<? include('include/home_header.php'); ?>
 
 <div id="container">
-
 
 	<div class="text">
 			<div class="bubble" id="about_bubble"><h2>About</h2></div>
@@ -17,10 +12,4 @@ include('include/home_header.php');
 			<?= grab('index_events'); ?>
 	</div>
 
-</div>
-
-<?
-
-include('include/footer.php');
-
-?>
+<? include('include/footer.php'); ?>

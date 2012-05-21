@@ -22,7 +22,7 @@ include('../include/header.php');
 		<?= grab('contact'); ?>
 	</div>
 
-</div>
+
 
 <?
 

@@ -37,7 +37,7 @@ $(function() {
 		<?= grab('guest_pass_when'); ?>
 	</div>
 
-</div>
+
 
 <?
 

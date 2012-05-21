@@ -32,7 +32,7 @@ $(function() {
 		<p>asdf</p>
 	</div>
 
-</div>
+
 
 <?
 

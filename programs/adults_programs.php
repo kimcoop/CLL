@@ -35,8 +35,7 @@ $(function() {
 		<h3><a href="guest_pass.php">Guest Pass</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
 		<?= grab('guest_pass_about'); ?>
 	</div>
-
-</div>
+	
 
 <?
 

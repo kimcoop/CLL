@@ -46,7 +46,6 @@ $(function() {
 		<?= grab('paws_cost'); ?>
 	</div>
 
-</div>
 
 <?
 

@@ -32,7 +32,6 @@ include('../include/header.php');
 			<br>
 		</div>
 	</div>
-</div><!-- end container -->
 
 <?
 

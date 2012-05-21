@@ -36,7 +36,6 @@ $(function() {
 		<?= grab('parent_fitness_when'); ?>
 	</div>
 
-</div>
 
 <?
 

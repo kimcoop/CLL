@@ -1,20 +1,10 @@
 
 #header {
 	//background: url('../images/banner_bg.png') no-repeat top center;
-	//width: 1200px;
+	//background: url('../images/inside_banner.png') no-repeat top center;
+	//background: #ddff77;
+	width: 1200px;
 	height: 244px;
-	margin: 5px auto;
-	margin-bottom: 0;
-}
-
-#container {
-	position: relative;
-	top: -20px;
-}
-
-#footer {
-	position: relative;
-	top: -20px;
 }
 
 #title {	
@@ -34,7 +24,11 @@
 
 #title_container h1 {
 	position: static;
-	margin: 0px auto;
+	margin: 10px auto;
+	background: #fafafa;
+	-moz-box-shadow: 5px 5px 0 #000;
+	-webkit-box-shadow: 5px 5px 0 #000;
+	box-shadow: 5px 5px 0 #000;
 }
 
 #title_container img {
