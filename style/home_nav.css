@@ -8,13 +8,14 @@
 }
 
 #nav_kids {
-	top: 63px;
-	width: 144px;
+	top: 70px;
+	left: 48px;
+	width: 184px;
 }
 
 #nav_adults {
-	top: -30px;
-	left: 55px;
+	top: -20px;
+	left: 130px;
 	-webkit-transform: rotate(-5deg); 
 	-moz-transform: rotate(-5deg);
 	-ms-transform:rotate(-5deg);
@@ -23,6 +24,7 @@
 }
 
 #nav_community {
-	top: 110px;
+	top: 109px;
 	left: -20px;
+	width: 200px;
 }
