@@ -14,7 +14,8 @@ $(function() {
 
 <div id="title_container">
 
-		<img src="../images/comm_scene.png" height="150" />
+		<img src="../images/comm_scene.png" height="110" />
+		<br><br>
 		<h1 id="title">Community Programs</h1>
 
 

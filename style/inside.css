@@ -1,7 +1,7 @@
 
 #header {
 	background: url('../images/banner_bg.png') no-repeat top center;
-	//background: url('../images/coark_texture.png') repeat top center;
+	background: url('../images/coark_texture.png') repeat top center;
 	width: 1200px;
 	height: 244px;
 }
@@ -17,17 +17,17 @@
 #title_container {
 	position: relative;
 	width: 600px;
-	top: -140px;
+	top: -153px;
+	height: 205px;
 	text-align: center;
+	padding-top: 28px;
+	overflow: hidden;
+	background: url('../images/notebook_paper_shortest.png') no-repeat top center;
 }
 
 #title_container h1 {
 	position: static;
-	margin: 10px auto;
-	background: #fafafa;
-	-moz-box-shadow: 5px 5px 0 #000;
-	-webkit-box-shadow: 5px 5px 0 #000;
-	box-shadow: 5px 5px 0 #000;
+	margin: 0 auto;
 }
 
 #title_container img {

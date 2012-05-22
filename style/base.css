@@ -1,13 +1,9 @@
 body {
 	color: #ccc;
 	width: 100%;
-	background: url('../images/sunny_wallpaper_v2.jpg') no-repeat top center;
-	background: url('../images/grassy_bg_v2.jpg') no-repeat top center;
 	background: url('../images/cathedral_closeup_wide.jpg') no-repeat top center;
-//	background: url('../images/cathedral_wide.jpg') no-repeat top center;
 	background-attachment: fixed;
 	background-size: 100%;
-
 	font-size: 12pt;
 	letter-spacing: -0.07em;
 	margin: 0;
@@ -19,13 +15,12 @@ body {
 	width: 629px;
 	position: relative;
 	top: -10px;
-	float: right;
+	left: -5px;
 	z-index: 98;
+	float: right;
 }
 
 #header {
-	background: url('../images/banner.png') no-repeat top center;
-	background: #ddff77 url('../images/header_img.png') no-repeat top center;
 	background: transparent url('../images/coarkboard.png') repeat top center;	
 	width: 1200px;
 	height: 440px;
@@ -46,6 +41,10 @@ body {
   bottom: 0;
   z-index: 0;
   height: 110%;
+  width: 100%;
+  overflow: hidden;
+  min-height: 992px;
+  min-width: 744px;
 }
 
 body > #container {
@@ -91,10 +90,6 @@ body > #container {
 	background: #fafafa;
 }
 
-.text p {
-	font-family: Palatino, times;
-}
-
 .text_footer {
 	text-align: right;
 }
@@ -106,7 +101,7 @@ body > #container {
 	padding: 20px 0;
 	position: absolute;
 	z-index: 4;
-	margin: -10px 0 0 -120px;
+	margin: -12px 0 0 -120px;
 	font-family: times;
 	color: #000;
 	text-align: top;
