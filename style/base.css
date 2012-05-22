@@ -3,8 +3,11 @@ body {
 	width: 100%;
 	background: url('../images/sunny_wallpaper_v2.jpg') no-repeat top center;
 	background: url('../images/grassy_bg_v2.jpg') no-repeat top center;
+	background: url('../images/cathedral_closeup_wide.jpg') no-repeat top center;
+//	background: url('../images/cathedral_wide.jpg') no-repeat top center;
 	background-attachment: fixed;
 	background-size: 100%;
+
 	font-size: 12pt;
 	letter-spacing: -0.07em;
 	margin: 0;
@@ -21,11 +24,9 @@ body {
 }
 
 #header {
-	background: url('../images/pattern_black.png') repeat top left;
-	background: url('../images/pattern_blue.png') repeat top left;
-	background: #ddd;
 	background: url('../images/banner.png') no-repeat top center;
-	background: #ddff77 url('../images/header_img.png') no-repeat top center;;
+	background: #ddff77 url('../images/header_img.png') no-repeat top center;
+	background: transparent url('../images/coarkboard.png') repeat top center;	
 	width: 1200px;
 	height: 440px;
 	border: 6px solid #000;
@@ -36,12 +37,13 @@ body {
 
 #cover {
 	background: url('../images/pattern_black.png') left top repeat;
-	position: absolute;
+	position: relative;
+	padding-top: 10px;
+	margin: 0;
   left: 0;
-  top: 0px;
+  top: 0;
   right: 0;
   bottom: 0;
-  background-attachment: fixed;
   z-index: 0;
   height: 110%;
 }
@@ -57,9 +59,9 @@ body > #container {
 	line-height: 1.3em;
 	margin: 0px auto;
 	border: 6px solid #000;
-	border-bottom: 0;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
 	background: #005F3B;
-	background: #11bb77;
 }
 
 #footer {
@@ -73,7 +75,7 @@ body > #container {
 	background: #003FCF;
 	color: #ccc;
 	border: 6px solid #000;
-	border-top: 2px solid #000;
+	border-top: 0;
 }
 
 .text {

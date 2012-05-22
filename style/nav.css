@@ -38,7 +38,7 @@
 }
 
 .hover_link {
-	z-index: 10;
+	z-index: 98;
 	cursor: pointer;
 	-moz-box-shadow: 4px 4px 0 #000;
 	-webkit-box-shadow: 4px 4px 0 #000;
@@ -60,7 +60,7 @@
 
 #nav_home:hover, #nav_kids:hover, #nav_adults:hover, #nav_community:hover {
 	background: #EA1D25;
-	background: #1B7;
+	background: #005F3B;
 }
 
 #nav_home {
