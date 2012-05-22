@@ -12,6 +12,7 @@
 	$editable_pages = array(
 	'Homepage - About CLL' => 'index_about',
 	'Homepage - Events' => 'index_events',
+	'Homepage - PostIt' => 'note',
 	'Guest Pass' => 'guest_pass',
 	'Guest Pass - About' => 'guest_pass_about',
 	'Guest Past - When' => 'guest_pass_when',

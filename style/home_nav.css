@@ -1,80 +1,26 @@
-/*
-#nav_home_menu {
-	left: -24px;
+#note {
+		position: relative;
+		top: 80px;
+		padding: 5px 2px;
+		font-size: 1.1em;
+		line-height: 1.2em;
+		font-family: 'Rock Salt';
+		width: 188px;
+		height: 130px;
+		overflow: hidden;
+		left: 200px;
+		text-align: center;
+		-webkit-transform: rotate(-5deg); 
+		-moz-transform: rotate(-5deg);
+		-ms-transform:rotate(-5deg);
+		-o-transform:rotate(-5deg);
+		transform: rotate(-5deg);
+		color: #333;
 }
 
-#nav_kids_menu {
-	left: -4px;
-}
 
-#nav_adults_menu {
-	left: -18px;
-}
-
-#nav_comm_menu {
-	left: 6px;
-}
-
-
-#nav {
-	top: 100px;
-  float: none;
-}
-*/
 .link h2 {
 	padding: 0 13px 5px 0;
 	margin-right: 1px;
 	background: transparent url('../images/go.png') no-repeat center right;
 }
-/*
-#nav_home {
-	width: 140px;
-	top: -190px;
-	left: 410px;
-}
-
-#nav_kids {
-	top: 25px;
-	left: -15px;
-	width: 184px;
-	-webkit-transform: rotate(-5deg); 
-	-moz-transform: rotate(-5deg);
-	-ms-transform:rotate(-5deg);
-	-o-transform:rotate(-5deg);
-	transform: rotate(-5deg);
-}
-
-#nav_adults {
-	top: 90px;
-	left: 120px;
-	-webkit-transform: rotate(4deg); 
-	-moz-transform: rotate(4deg);
-	-ms-transform:rotate(4deg);
-	-o-transform:rotate(4deg);
-	transform: rotate(4deg);
-}
-
-#nav_community {
-	top: 105px;
-	left: 380px;
-	width: 200px;
-
-}
-.text {
-	float: right;
-	margin: 15px 0 10px;
-}
-
-#home_text {
-	width: 65%;
-	float: left;
-}
-
-#home_img {
-	height: 250px;
-	width: 280px;
-	padding: 0 20px;
-	text-align: center;
-	float: left;
-}
-*/

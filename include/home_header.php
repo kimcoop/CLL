@@ -20,5 +20,9 @@
 
 <div class="clearfix"></div>
 
+<div id="note">
+	<?= grab('note'); ?>
+</div>
+
 
 </div>
