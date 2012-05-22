@@ -164,8 +164,28 @@ h3 {
 				} else { // *If it didn't work, display an error message
 					echo "<p>Uh-oh - that page was unable to be accessed. Please try again.</p>";
 				}
-			} else {//If no page has been specified, the user probably just landed here
-			}
+				
+				if ($_GET['page'] == 'events') {
+				//%%##High School Dance Workshop##9/10/2012##Details details details
+				
+					$events = array();
+					$all_events = explode('%%', $page_content);
+					
+					foreach ($all_events as $e) {
+						$e_arr = explode('##', $e);
+						$title = $e_arr[0];
+						$date = $e_arr[1];
+						$details = $e_arr[2];
+						$event = array("title"=>$title, "date"=>$date, "details"=>$details);
+						$events[] = $event;
+						echo '<p>'.$title . $date . $details.'</p>';
+					}
+				
+				
+				}
+				
+				
+			} // else no page specified
 			
 			?>
 			</form>
