@@ -135,17 +135,5 @@ $.fn.activate = function() {
 		
 		<div class="link" id="nav_community">
 			<h2>Community</h2>
-			<div id="nav_comm_menu" class="menu">
-				<ul>
-					<li>
-						<a href="<?= $GLOBALS['root'] ?>/programs/parent_fitness.php">Stuff 1</a><br>
-						aaa					
-					</li>
-					<li>
-						<a href="<?= $GLOBALS['root'] ?>/programs/guest_pass.php">Stuff 2</a><br>
-						aaa
-					</li>
-				</ul>
-			</div>	
 		</div> <!-- /#nav_community -->
 	</div> <!-- /#nav -->
