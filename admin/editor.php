@@ -62,8 +62,6 @@ if (!isset($_SESSION['admin']) && !isset($_GET['do'])) {
 <style>
 
 body {
-	//background: #1B7;
-	//background: #ddd;
 }
 
 #cover {
@@ -78,9 +76,6 @@ body {
 	border: 6px solid #000;
 	background: #fafafa;
 	color: #333;
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	margin: 10px auto;
 }
 
 h2 {

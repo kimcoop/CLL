@@ -34,7 +34,7 @@
 	'Saturday\'s Kids - Where' => 'sat_kids_where',
 	'Saturday\'s Kids - When' => 'sat_kids_when',
 	'Contact' => 'contact',
-	'Events' => 'events',
+	'Events' => 'index_events',
 	'Location' => 'location'
 );
 
