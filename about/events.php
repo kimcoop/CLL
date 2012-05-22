@@ -23,8 +23,10 @@ include('../include/header.php');
 		<div class="bubble">
 			<h2 class="small">Upcoming<br>Events</h2>
 		</div>
-		<h3>Upcoming Events</h3>
-		<?= grab('events'); ?>
+		<div style="width: 98%; margin: 10px auto;">
+			<h3>Upcoming Events</h3>
+			<?= grab('index_events'); ?>
+		</div>
 	</div>
 	
 	<div class="text">
@@ -32,9 +34,7 @@ include('../include/header.php');
 		<div class="bubble">
 			<h2 class="small">Calendar</h2>
 		</div>
-		
-		<h3>Calendar</h3>
-		<p>Lorem ipsum</p>
+		<? include('calendar.php'); ?>
 	</div>
 
 
