@@ -1,16 +1,18 @@
-<? include('../include/config.php'); 
+<? 
+
+	include('../include/config.php'); 
 	session_start();
-
-$homepage = $GLOBALS['site'] . '/index.php';
-
-if (!isset($_SESSION['admin']) && !isset($_GET['do'])) {
-	header("location:" .$homepage);
-	exit;
-} else if (isset($_GET['do']) && $_GET['do'] == 'logout') {
-	session_destroy();
-	header("location:" .$homepage);
-	exit;
-}
+	
+	$homepage = $GLOBALS['site'] . '/index.php';
+	
+	if (!isset($_SESSION['admin']) && !isset($_GET['do'])) {
+		header("location:" .$homepage);
+		exit;
+	} else if (isset($_GET['do']) && $_GET['do'] == 'logout') {
+		session_destroy();
+		header("location:" .$homepage);
+		exit;
+	}
 
 ?>
 
@@ -168,18 +170,7 @@ h3 {
 				if ($_GET['page'] == 'events') {
 				//%%##High School Dance Workshop##9/10/2012##Details details details
 				
-					$events = array();
-					$all_events = explode('%%', $page_content);
 					
-					foreach ($all_events as $e) {
-						$e_arr = explode('##', $e);
-						$title = $e_arr[0];
-						$date = $e_arr[1];
-						$details = $e_arr[2];
-						$event = array("title"=>$title, "date"=>$date, "details"=>$details);
-						$events[] = $event;
-						echo '<p>'.$title . $date . $details.'</p>';
-					}
 				
 				
 				}

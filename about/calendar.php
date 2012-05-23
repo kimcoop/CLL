@@ -7,114 +7,43 @@
 <script type='text/javascript' src='../js/fullcalendar/fullcalendar.min.js'></script>
 <script type='text/javascript'>
 
-$(document).ready(function() {
-	
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
+$(function() {
+		getEvents();
+});
 
-		$('#calendar').fullCalendar({
+function getEvents() {
 
-			editable: true,
+	var events_arr = new Array();
+	var dataString = 'action=getEvents';
+	var file = '../include/functions.php';
 
-			events: [
-
-				{
-
-					title: 'All Day Event',
-
-					start: new Date(y, m, 1)
-
-				},
-
-				{
-
-					title: 'Long Event',
-
-					start: new Date(y, m, d-5),
-
-					end: new Date(y, m, d-2)
-
-				},
-
-				{
-
-					id: 999,
-
-					title: 'Repeating Event',
-
-					start: new Date(y, m, d-3, 16, 0),
-
-					allDay: false
-
-				},
-
-				{
-
-					id: 999,
-
-					title: 'Repeating Event',
-
-					start: new Date(y, m, d+4, 16, 0),
-
-					allDay: false
-
-				},
-
-				{
-
-					title: 'Meeting',
-
-					start: new Date(y, m, d, 10, 30),
-
-					allDay: false
-
-				},
-
-				{
-
-					title: 'Lunch',
-
-					start: new Date(y, m, d, 12, 0),
-
-					end: new Date(y, m, d, 14, 0),
-
-					allDay: false
-
-				},
-
-				{
-
-					title: 'Birthday Party',
-
-					start: new Date(y, m, d+1, 19, 0),
-
-					end: new Date(y, m, d+1, 22, 30),
-
-					allDay: false
-
-				},
-
-				{
-
-					title: 'Click for Google',
-
-					start: new Date(y, m, 28),
-
-					end: new Date(y, m, 29),
-
-					url: 'http://google.com/'
-
-				}
-
-			]
-
-		});
-
-		
-
-	});
+	$.ajax({ 
+			 type: 'post',
+			 dataType: 'json',
+			 url: file,
+			 data: dataString,
+			 success: function(data) {
+			 	
+			 	$(data.response).each(function(i, val) {
+			 		events_arr.push({
+			 			'title': val.title,
+			 			'start': new Date(val.year, val.month, val.day)
+			 		});
+			 		
+			 	}); // end each
+				
+				$('#calendar').fullCalendar({
+					editable: true,
+					events: events_arr
+				});
+			
+			}, // end success
+			error: function(xhr, textStatus, errorThrown) {
+					console.log(arguments);
+					console.log('Request failed. ' +textStatus+ ': ' + errorThrown);
+			}
+	}); // end ajax
+};
 
 
 
@@ -136,6 +65,25 @@ $(document).ready(function() {
 	font-family: "Helvetica Neue", arial;
 }
 
+#raw_events {
+	display: none;
+}
+
 </style>
+
+<div id="raw_events">
+
+<?
+	$raw_events = grab('events');
+	echo $raw_events;
+	
+	getEvents();
+	/*
+		title: 'All Day Event',
+		start: new Date(y, m, 1)*/
+					
+?>
+	
+</div>
 
 <div id='calendar'></div>

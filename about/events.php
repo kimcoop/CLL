@@ -9,7 +9,7 @@ include('../include/header.php');
 		<img src="../images/calendar.png" height="150" />
 		<h1 id="title">Events</h1>
 
-</div> <!-- end /#title_container -->
+</div> <!-- /#title_container -->
 </div> <!-- /#header -->
 
 <div id="container">
