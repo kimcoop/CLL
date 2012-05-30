@@ -46,16 +46,19 @@
 			classesHtml: ''
 	  });
 	  
-	  $("#page-code-save").hide().after("<a class='submit' id='pseudo-submit'>Save</a>");
+	  $("#page-code-save").hide().after("<a class='submit' id='pseudo_submit'>Save</a>");
 	  
-	  $("#pseudo-submit").click(function() {
-			/*var before = $("#page-code").text().split("<body>")[0] + "<body>";
-			var after = "</body>" + $("#page-code").text().split("</body>")[1];*/
+	  $("#pseudo_submit").click(function() {
 			var code = jQuery.wymeditors(0).xhtml();
-			//$("#page-code").text(before + code + after);
 			$('#page-code').text(code);
 			$("#editor").submit();
 			return false;
+	  });
+	  
+	  $('#new_event').click(function() {
+	  
+	  	alert('click');
+	  
 	  });
 	  
 	});
@@ -161,18 +164,17 @@ h3 {
 				$page_content = file_get_contents($input_file);
 		
 				if ($page_content) {// if get page worked, obfuscate any textarea tags that would mess up the display and print content inside a textarea
-					echo "<textarea name='page-code' id='page-code'>" . str_replace("</textarea>","</*textarea*>", $page_content). "</textarea><br />";
+					
+				
+					if ($_GET['page'] == 'events') {
+						include('event_editor.php');			
+					} else {
+						echo "<textarea name='page-code' id='page-code'>" . str_replace("</textarea>","</*textarea*>", $page_content). "</textarea><br />";
+					}
+					
 					echo "<input type='submit' class='submit' id='page-code-save' name='page-code-save' value='save'/>";
 				} else { // *If it didn't work, display an error message
 					echo "<p>Uh-oh - that page was unable to be accessed. Please try again.</p>";
-				}
-				
-				if ($_GET['page'] == 'events') {
-				//%%##High School Dance Workshop##9/10/2012##Details details details
-				
-					
-				
-				
 				}
 				
 				

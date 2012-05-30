@@ -32,7 +32,7 @@ function getEvents() {
 		
 		if (!empty($title) && !empty($date) && !empty($details)) {
 			$event = array("title"=>$title, "date"=>$date, "details"=>$details,
-				"year"=>"2012", "month"=>"05", "day"=>"23");
+				"year"=>"2012", "month"=>"04", "day"=>"23");
 			$events[] = $event;
 		}
 	}
