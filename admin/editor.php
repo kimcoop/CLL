@@ -74,9 +74,9 @@
 				$(".event_row").each(function() {
 					$(this).children('td').each(function() { // go through the cells, grab proper data
 						var el = $(this).children();
-						if (el.length > 0) {
-							var val = el.attr('value').trim();
-							if (val != '') code += val;
+						if (el.length > 0) { // if there are children
+							var val = el.attr('value');
+							if (val != undefined) code += val.trim();
 							else code += el.text().trim();
 							code += "##";
 						}
@@ -85,7 +85,8 @@
 				}); // each
 				
 				$.post('actions.php', { 'action' : 'edit', 'file' : 'events.txt', 'content' : code }, function() {
-					alert('posted: ' + code);
+					//alert('posted: ' + code);
+					$('#event_table').before("<h3 class='success centered'>Event(s) saved!</h3><br>");
 					return false;
 				});
 				
