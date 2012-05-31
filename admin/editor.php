@@ -33,11 +33,30 @@
 	<link type="text/css" rel="stylesheet" href="../style/admin.css"/>
 	<link type="text/css" rel="stylesheet" href="../style/base.css"/>
 	<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+	<link href="http://code.jquery.com/ui/1.8.19/themes/base/jquery-ui.css" rel='stylesheet' type='text/css'>
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.8.20/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/jquery-ui-timepicker-addon.js"></script>
 	<script type='text/javascript' src='wymeditor/jquery.wymeditor.pack.js'></script>
 	<script type='text/javascript'>
 	$(function() { 
+	
+		$('.date').datetimepicker({
+			ampm: true
+		});
+		
+		$('.delete').click(function() {
+		
+			var t = confirm('Delete this event?');
+			if (t) {
+				var el = $(this).parent().parent('tr');
+				el.fadeOut('slow', function() {
+					el.remove();
+				});
+			}
+		
+		});
 	
 	  $("#page-code").wymeditor({
 			skin: "minimal",
@@ -67,6 +86,7 @@
 				
 				$.post('actions.php', { 'action' : 'edit', 'file' : 'events.txt', 'content' : code }, function() {
 					alert('posted: ' + code);
+					return false;
 				});
 				
 			} else {
@@ -93,6 +113,14 @@
 	</script>
 	
 <style>
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 
 body {
 }

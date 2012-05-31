@@ -24,13 +24,18 @@ textarea {
 	word-wrap: break-word;
 }
 
+.date {
+	width: 140px;
+}
+
 
 </style>
 
 <table id="event_table">
 	<thead>
 		<th>Title</th>
-		<th>Date</th>
+		<th>Starting Time</th>
+		<th>Ending Time</th>
 		<th>Details</th>
 	</thead>
 	<tbody>
@@ -48,13 +53,16 @@ textarea {
 			
 			$title = escape($event[0]);
 			$date = $event[1];
-			$details = escape($event[2]);
+			$end_date = $event[2];
+			$details = escape($event[3]);
 			
 			?>
 			<tr class='event_row'>
-			<td><input class='event' type='text' value="<?= $title ?>"/></td>
-			<td><input class='event' type='text' value="<?= $date ?>"/></td>
-			<td><textarea class='event' type='textarea'><?= $details ?></textarea></td>
+				<td><input class='event' type='text' value="<?= $title ?>"/></td>
+				<td><input class='event date' type='text' value="<?= $date ?>"/></td>
+				<td><input class='event date' type='text' value="<?= $end_date ?>"/></td>
+				<td><textarea class='event' type='textarea'><?= $details ?></textarea></td>
+				<td><span class='delete'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
 			</tr>
 			<?
 			$count++;
