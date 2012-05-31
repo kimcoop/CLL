@@ -55,7 +55,7 @@ function getEvents() {
 						$('#details').fadeIn().css({
 							'top':y+6,
 							'left':x-3
-						}).html("<h2>"+calEvent.title+"</h2><p>"+details+"</p><span class='close' id='close_details'></span>");
+						}).html("<span class='close' id='close_details'>[x]</span><h2>"+calEvent.title+"</h2><p>"+details+"</p>");
 						
 					}
 				});
@@ -72,23 +72,34 @@ function getEvents() {
 
 <style type='text/css'>
 
+#close_details {
+	float: right;
+	margin-right: -10px;
+	margin-top: -2px;
+	cursor: pointer;
+}
+
+#close_details:hover {
+	color: #003FCF;
+}
+
 #details {
 	word-wrap: break-word;
 	position: absolute;
 	z-index: 999;
-	width: 170px;
+	width: 190px;
 	min-height: 150px;
 	padding: 10px 15px;
 	background: #FFED00;
--moz-box-shadow: 3px 3px 0 #000;
--webkit-box-shadow: 3px 3px 0 #000;
-box-shadow: 3px 3px 0 #000;
+	-moz-box-shadow: 3px 3px 0 #000;
+	-webkit-box-shadow: 3px 3px 0 #000;
+	box-shadow: 3px 3px 0 #000;
 	display: none;
 }
 
 #details h2 {
-	text-shadow: none;
-}
+	clear: both;
+}	
 
 #calendar {
 	width: 95%;
