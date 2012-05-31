@@ -49,16 +49,42 @@
 	  $("#page-code-save").hide().after("<a class='submit' id='pseudo_submit'>Save</a>");
 	  
 	  $("#pseudo_submit").click(function() {
-			var code = jQuery.wymeditors(0).xhtml();
-			$('#page-code').text(code);
-			$("#editor").submit();
-			return false;
+	  	var code = '';
+	  	if ($("#event_table").length > 0) { // grab the text from the events table rows
+				
+				$(".event_row").each(function() {
+					$(this).children('td').each(function() { // go through the cells, grab proper data
+						var el = $(this).children('input').attr('value');
+						if (el != '') {
+							code += el;
+							code += "##";
+						}
+					});
+					if ($(this).text().length > 0) code += "%%";					
+				}); // each
+				
+				$.post('actions.php', { 'action' : 'edit', 'file' : 'events.txt', 'content' : code }, function() {
+					alert('posted: ' + code);
+				});
+				
+			} else {
+				code = jQuery.wymeditors(0).xhtml();
+				$('#page-code').text(code);
+				$("#editor").submit();
+	  		return false;
+	  	}
 	  });
 	  
 	  $('#new_event').click(function() {
 	  
-	  	alert('click');
-	  
+	  	var table = $("#event_table");
+	  	var el = "<tr class='event_row'>";
+	  	el += "<td><input class='event' type='text' placeholder='Event title'/></td>";
+	  	el += "<td><input class='event' type='text' placeholder='Event date'/></td>";
+	  	el += "<td><input class='event' type='textarea' placeholder='Event details'/></td>";
+	  	el += "</tr>";
+	  	table.append(el);
+	  	
 	  });
 	  
 	});
@@ -149,8 +175,15 @@ h3 {
 				
 				if (!empty($_POST['page-code'])) { //if a page was saved
 		
+	echo '<h1>page code</h1>';
+		
 					$output_file = '../content/text/' . $_GET['page'] . '.txt'; //fix any textarea tags, strip slashes and attempt to save file
-					$saved_file = file_put_contents($output_file, stripslashes(str_replace("</*textarea*>", "</textarea>", $_POST['page-code'])));
+					
+					if (!empty($_POST['content'])) {
+						$saved_file = file_put_contents($output_file, $_POST['content']);
+					} else {
+						$saved_file = file_put_contents($output_file, stripslashes(str_replace("</*textarea*>", "</textarea>", $_POST['page-code'])));
+					}
 					if ($saved_file) {
 						echo "<h3 class='success centered'>Your page was updated successfully!</h3>";
 					} else {

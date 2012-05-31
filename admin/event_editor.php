@@ -23,7 +23,7 @@ td input[type="textarea"] {
 
 </style>
 
-<table>
+<table id="event_table">
 	<thead>
 		<th>Title</th>
 		<th>Date</th>
@@ -47,7 +47,7 @@ td input[type="textarea"] {
 			$details = escape($event[2]);
 			
 			?>
-			<tr>
+			<tr class='event_row'>
 			<td><input class='event' type='text' value="<?= $title ?>"/></td>
 			<td><input class='event' type='text' value="<?= $date ?>"/></td>
 			<td><input class='event' type='textarea' value="<?= $details ?>"/></td>
@@ -55,12 +55,7 @@ td input[type="textarea"] {
 			<?
 			$count++;
 		}
-	} // foreach
-	
-	
-	
-	
-	
+	} // foreach	
 	
 	?>
 	
@@ -70,14 +65,10 @@ td input[type="textarea"] {
 	<a class='submit' id='new_event'>New Event</a>
 	
 	<?
-/*
-	echo "<textarea name='page-code' id='page-code'>" . 
-	str_replace("</textarea>","</*textarea*>", $page_content). 
-	"</textarea><br />";
-	*/
 	
 	function escape($str) {
-		return str_replace("\"", "''", $str);
+		return stripslashes($str);
+		//return str_replace('\"', "''", $str);
 	}
 
 
