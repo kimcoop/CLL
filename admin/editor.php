@@ -86,7 +86,10 @@
 				
 				$.post('actions.php', { 'action' : 'edit', 'file' : 'events.txt', 'content' : code }, function() {
 					//alert('posted: ' + code);
-					$('#event_table').before("<h3 class='success centered'>Event(s) saved!</h3><br>");
+					$('#event_table').before("<h3 id='event_success' class='success centered' style='display:none;margin-bottom:1em'>Event(s) saved!</h3>");
+					$('#event_success').fadeIn('slow', function() {
+						$(this).delay(1800).fadeOut('slow');
+					});
 					return false;
 				});
 				
