@@ -54,9 +54,11 @@
 				
 				$(".event_row").each(function() {
 					$(this).children('td').each(function() { // go through the cells, grab proper data
-						var el = $(this).children('input').attr('value');
-						if (el != '') {
-							code += el;
+						var el = $(this).children();
+						if (el.length > 0) {
+							var val = el.attr('value').trim();
+							if (val != '') code += val;
+							else code += el.text().trim();
 							code += "##";
 						}
 					});

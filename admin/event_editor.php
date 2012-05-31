@@ -5,6 +5,7 @@
 
 table {
 	margin: 0px auto;
+	margin-bottom: 10px;
 }
 
 td, th {
@@ -13,11 +14,14 @@ td, th {
 
 td input {
 	width: 200px;
+	max-width: 200px;
+	word-wrap: break-word;
 }
 
-td input[type="textarea"] {
+textarea {
 	width: 200px;
-	height: 50px;
+	max-width: 200px;
+	word-wrap: break-word;
 }
 
 
@@ -50,7 +54,7 @@ td input[type="textarea"] {
 			<tr class='event_row'>
 			<td><input class='event' type='text' value="<?= $title ?>"/></td>
 			<td><input class='event' type='text' value="<?= $date ?>"/></td>
-			<td><input class='event' type='textarea' value="<?= $details ?>"/></td>
+			<td><textarea class='event' type='textarea'><?= $details ?></textarea></td>
 			</tr>
 			<?
 			$count++;
