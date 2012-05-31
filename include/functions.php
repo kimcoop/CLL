@@ -17,8 +17,7 @@ function grab($name) {
 		
 		return $out;
 		
-}
-
+} // grab
 
 function getEvents() {
 	$lines = explode('%%', grab('events'));
@@ -28,28 +27,25 @@ function getEvents() {
 		$e = explode('##', $line);
 		$title = stripslashes($e[0]);
 		$date = $e[1];
-		$end = $e[2];
+		$end_date = $e[2];
 		$details = stripslashes($e[3]);
-		$month = date('M', strtotime($date));
-		$day = date('d', strtotime($date));
-		$year = date('Y', strtotime($date));
+		$month = date('M', strtotime($date)); $month = "5";
+		$day = date('d', strtotime($date)); $day = "31";
+		$year = date('Y', strtotime($date)); $year = "2012";
 		$time = date('h:i a', strtotime($date));
-		/*
-			$article['month'] = date('M', strtotime($date));
-			$article['day'] = date('d', strtotime($date));
-			$article['timestamp'] = date('h:i a', strtotime($date));*/
-            //start  : '2010-01-09 12:30:00',
-            //allDay : false // will make the time show
+		$timestamp = str_replace('\\', '-', $date);
+		$end = str_replace('\\', '-', $end_date);
 		
 		if (!empty($title) && !empty($date) && !empty($details)) {
 			$event = array("title"=>$title, "date"=>$date, "details"=>$details,
-				"year"=>$year, "month"=>$month, "day"=>$day, "time"=>$time);
+				"year"=>"2012", "month"=>"05", "day"=>"23", "time"=>$time);
+			$event = array("title"=>$title, "timestamp"=>$timestamp, "end"=>$end, "details"=>$details);
 			$events[] = $event;
 		}
 	}
 
 	echo json_encode(array('response'=>$events));
 
-}
+} // getEvents
 
 ?>

@@ -27,14 +27,23 @@ function getEvents() {
 			 	$(data.response).each(function(i, val) {
 			 		events_arr.push({
 			 			'title': val.title,
-			 			'start': new Date(val.year, val.month, val.day)
+			 			'start': val.timestamp,
+			 			'end' : val.end,
+			 			'allDay': false,
+			 			'id': val.details
 			 		});
 			 		
 			 	}); // end each
 				
 				$('#calendar').fullCalendar({
 					editable: true,
-					events: events_arr
+					events: events_arr,
+					eventClick: function(calEvent, jsEvent, view) {
+						alert(calEvent.title);
+						alert(calEvent.id);
+						var x = jsEvent.pageX;
+						var y = jsEvent.pageY;
+					}
 				});
 			
 			}, // end success
@@ -78,9 +87,6 @@ function getEvents() {
 	echo $raw_events;
 	
 	getEvents();
-	/*
-		title: 'All Day Event',
-		start: new Date(y, m, 1)*/
 					
 ?>
 	

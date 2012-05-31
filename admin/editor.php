@@ -52,11 +52,11 @@
 			if (t) {
 				var el = $(this).parent().parent('tr');
 				el.fadeOut('slow', function() {
-					el.remove();
+					el.detach();
 				});
 			}
 		
-		});
+		}); // delete click
 	
 	  $("#page-code").wymeditor({
 			skin: "minimal",
@@ -106,12 +106,13 @@
 	  	var table = $("#event_table");
 	  	var el = "<tr class='event_row'>";
 	  	el += "<td><input class='event' type='text' placeholder='Event title'/></td>";
-	  	el += "<td><input class='event' type='text' placeholder='Event date'/></td>";
-	  	el += "<td><input class='event' type='textarea' placeholder='Event details'/></td>";
+	  	el += "<td><input class='event date' type='text' placeholder='Event start'/></td>";
+	  	el += "<td><input class='event date' type='text' placeholder='Event end'/></td>";
+	  	el += "<td><textarea class='event' type='textarea' placeholder='Event details'></textarea></td>";
 	  	el += "</tr>";
 	  	table.append(el);
 	  	
-	  });
+	  }); // new_event click
 	  
 	});
 	</script>
@@ -208,9 +209,7 @@ h3 {
 				echo "</ul>";
 				
 				if (!empty($_POST['page-code'])) { //if a page was saved
-		
-	echo '<h1>page code</h1>';
-		
+				
 					$output_file = '../content/text/' . $_GET['page'] . '.txt'; //fix any textarea tags, strip slashes and attempt to save file
 					
 					if (!empty($_POST['content'])) {
@@ -232,7 +231,6 @@ h3 {
 		
 				if ($page_content) {// if get page worked, obfuscate any textarea tags that would mess up the display and print content inside a textarea
 					
-				
 					if ($_GET['page'] == 'events') {
 						include('event_editor.php');			
 					} else {
@@ -243,7 +241,6 @@ h3 {
 				} else { // *If it didn't work, display an error message
 					echo "<p>Uh-oh - that page was unable to be accessed. Please try again.</p>";
 				}
-				
 				
 			} // else no page specified
 			
