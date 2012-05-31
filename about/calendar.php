@@ -9,6 +9,15 @@
 
 $(function() {
 		getEvents();
+		
+		$('.fc-header').live('click',function() {
+			$('#details').fadeOut('fast');
+		});
+	
+		$('#close_details').live('click',function() {
+			$('#details').fadeOut();
+		});
+		
 });
 
 function getEvents() {
@@ -30,7 +39,7 @@ function getEvents() {
 			 			'start': val.timestamp,
 			 			'end' : val.end,
 			 			'allDay': false,
-			 			'id': val.details
+			 			'id': val.details // sneak the details in here for onclick events
 			 		});
 			 		
 			 	}); // end each
@@ -39,10 +48,15 @@ function getEvents() {
 					editable: true,
 					events: events_arr,
 					eventClick: function(calEvent, jsEvent, view) {
-						alert(calEvent.title);
-						alert(calEvent.id);
+						details = calEvent.id;
 						var x = jsEvent.pageX;
 						var y = jsEvent.pageY;
+						
+						$('#details').fadeIn().css({
+							'top':y+6,
+							'left':x-3
+						}).html("<h2>"+calEvent.title+"</h2><p>"+details+"</p><span class='close' id='close_details'></span>");
+						
 					}
 				});
 			
@@ -54,12 +68,27 @@ function getEvents() {
 	}); // end ajax
 };
 
-
-
 </script>
 
 <style type='text/css'>
 
+#details {
+	word-wrap: break-word;
+	position: absolute;
+	z-index: 999;
+	width: 170px;
+	min-height: 150px;
+	padding: 10px 15px;
+	background: #FFED00;
+-moz-box-shadow: 3px 3px 0 #000;
+-webkit-box-shadow: 3px 3px 0 #000;
+box-shadow: 3px 3px 0 #000;
+	display: none;
+}
+
+#details h2 {
+	text-shadow: none;
+}
 
 #calendar {
 	width: 95%;
@@ -79,6 +108,8 @@ function getEvents() {
 }
 
 </style>
+
+<div id="details"></div>
 
 <div id="raw_events">
 
