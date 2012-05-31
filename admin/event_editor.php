@@ -28,6 +28,14 @@ textarea {
 	width: 140px;
 }
 
+.small {
+	width: 20px;
+}
+
+#event_table {
+	margin-left: 0px;
+}
+
 
 </style>
 
@@ -37,6 +45,7 @@ textarea {
 		<th>Starting Time</th>
 		<th>Ending Time</th>
 		<th>Details</th>
+		<th class="small"></th>
 	</thead>
 	<tbody>
 		
