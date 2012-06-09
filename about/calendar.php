@@ -22,15 +22,7 @@ $(function() {
 
 function getEvents() {
 
-			 	/*	events_arr.push({
-			 			'title': val.title,
-			 			'start': val.start,
-			 			'end' : val.end,
-			 			'allDay': false,
-			 			'id': val.details // sneak the details in here for onclick events
-			 		});*/
-	var events_arr = new Array();
-	
+	var events_arr = new Array(); // hold our events til we're ready to push into the calendar	
 	var eventsGroup = Parse.Collection.extend({
 		model: 'event'
 	});
@@ -38,7 +30,7 @@ function getEvents() {
 	var collection = new eventsGroup;
 	collection.fetch({
 		success: function(collection) {
-			collection.each(function(object) {
+			collection.each(function(object) { // iterate
 			
 				events_arr.push({
 					'title': object.get("name"),
@@ -125,17 +117,4 @@ function getEvents() {
 </style>
 
 <div id="details"></div>
-
-<div id="raw_events">
-
-<?
-	$raw_events = grab('events');
-	echo $raw_events;
-	
-	getEvents();
-					
-?>
-	
-</div>
-
 <div id='calendar'></div>

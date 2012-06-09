@@ -168,6 +168,17 @@
 			}
 		
 		}); // delete click
+		
+		
+		$('#tabs li h3').click(function() {
+			
+			var id = this.id;
+			$('#tabs li h3').removeClass('active');
+			$(this).addClass('active');
+			$('.section').hide();
+			$('#section_'+id).show();
+		
+		}); // tabs click|		
 	  
 	});
 	</script>
@@ -205,6 +216,35 @@ h2 {
 
 h3 {
 	text-shadow: none;
+}
+
+#tabs {
+	list-style-type: none;
+}
+
+#tabs li {
+	float: left;
+	padding: 5px;
+	border: 2px solid #000;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	background: #ccc;
+}
+
+#tabs li.active {
+	background: transparent;
+	border-bottom: 2px solid #FAFAFA;
+}
+
+#tabs li h3:hover {
+	cursor: pointer;
+	color: #003FCF;
+}
+
+.section {
+	margin: -8px 0 10px 6px;
+	padding: 0 10px;
+	border: 2px solid #000;
 }
 
 </style>
@@ -252,8 +292,25 @@ h3 {
 			<form id="editor">
 				<h2>CLL Admin</h2>
 				<p><?= INTRO ?>
+				
+				<ul id="tabs">
+					<li class="active"><h3 id="content">Manage Content</h3></li>
+					<li><h3 id="cal">Manage Calendar</h3></li>
+				</ul>
+				
+				<div class="clearfix"></div>
+				
+				<div id="section_content" class="section">
+				
 				<ul id='page_list' class='controls'></ul>
-				<input type='button' class='submit' id='page_code_save' name='page_code_save' value='Save' style='display:none'/>				
+				<input type='button' class='submit' id='page_code_save' name='page_code_save' value='Save' style='display:none'/>
+				
+				</div><!-- #content_edit -->
+				
+				<div id="section_cal" class="section" style="display:none">
+					Calendar events here
+				</div><!-- #cal_edit -->
+				
 			</form>
 			
 		<? } ?>
