@@ -8,8 +8,8 @@ include('../include/header.php');
 
 $(function() {
 	$('#nav_home').activate();
-	$('sat_kids').fetch('Sat Kids');
-	$('paws').fetch('PAWS');
+	$('#sat_kids').fetch('Sat Kids');
+	$('#paws').fetch('PAWS');
 	$('#pack').fetch('PACK');
 	$('#pf').fetch('Parent Fitness');
 	$('#gp').fetch('Guest Pass');

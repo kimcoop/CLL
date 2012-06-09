@@ -6,7 +6,7 @@ include('../include/header.php');
 
 <script type="text/javascript">
 $(function() {
-	$('#events').fetch('Homepage - Events');
+	$('#upc_events').fetch('Homepage - Events');
 });
 </script>
 
@@ -32,7 +32,7 @@ $(function() {
 		</div>
 		<div style="width: 98%; margin: 10px auto;">
 			<h3>Upcoming Events</h3>
-			<div id="events"></div>
+			<div id="upc_events"></div>
 		</div>
 	</div>
 	

@@ -89,7 +89,6 @@ textarea {
 	
 	function escape($str) {
 		return stripslashes($str);
-		//return str_replace('\"', "''", $str);
 	}
 
 

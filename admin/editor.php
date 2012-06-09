@@ -39,7 +39,7 @@
 	$(function() {
 
 		Parse.initialize("Ji2ce107tebyCJEC31gGvyvZ24YsBVV2m1ES0VHz", "MICUaupejbUuLurojUgkZpyFGQWjLDrtJZAzcqxz");
-		
+		var selectedPage = '';
 		var pagesGroup = Parse.Collection.extend({
 			model: 'page'
 		});
@@ -53,12 +53,13 @@
 				});
 			},
 			error: function(collection, error) {
-				// The collection could not be retrieved.
+				alert('The collection could not be retrieved. ' + error);
 			}
 		});
 	
 		$('.page_link').live('click', function() {
 			var pageName = $(this).text();
+			selectedPage = pageName; // track it
 			var pageToFetch = Parse.Object.extend("page");
 			var query = new Parse.Query(pageToFetch);
 			
@@ -114,29 +115,30 @@
 				});
 				
 			} else {
-				code = $.wymeditors(0).xhtml();
-				$('#page_code').text(code);
-				page = $('#page').attr('value');
-				
-				var pageToSave = Parse.Object.extend("page");
-				var pageToSave = new pageToSave();
-				pageToSave.set("name", page);
-				pageToSave.set("content", code);
-				pageToSave.save(null, {
-					success: function(pageToSave) {
-						alert('Page saved.');
-					},
-					error: function(pageToSave, error) {
-						alert(Parse.Error);
-						// error is a Parse.Error with an error code and description.
-					}
-				});
-				
-				
-	  		return false;	
-	  		
-	  	}
-	  });
+					code = $.wymeditors(0).xhtml();
+					$('#page_code').text(code);
+					
+					var pageToFetch = Parse.Object.extend("page");
+					var query = new Parse.Query(pageToFetch);
+					var pageForUpdate = null;
+					
+					query.equalTo("name", selectedPage);
+					query.find({
+						success: function(result) {
+							pageForUpdate = result[0];
+							
+								pageForUpdate.save({
+									content: code
+								});
+								alert('saved code : ' +code); // not getting right code
+							
+						},
+						error: function(error) {
+							console.log("Error: " + error.code + " " + error.message);
+						}
+					}); // query.find
+			} // else
+		}); // click
 	  
 	  $('#new_event').click(function() {
 	  
@@ -247,11 +249,11 @@ h3 {
 			</style>
 			<div id="logout" class="link"><h2><a href="?do=logout">Logout&nbsp;&raquo;</a></h2></div>
 		
-			<form id="editor" method="post" action="<? $_SERVER['PHP_SELF']; ?>">
+			<form id="editor">
 				<h2>CLL Admin</h2>
 				<p><?= INTRO ?>
 				<ul id='page_list' class='controls'></ul>
-				<input type='submit' class='submit' id='page_code_save' name='page_code_save' value='Save' style='display:none'/>				
+				<input type='button' class='submit' id='page_code_save' name='page_code_save' value='Save' style='display:none'/>				
 			</form>
 			
 		<? } ?>
