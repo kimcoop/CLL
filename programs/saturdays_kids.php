@@ -10,6 +10,10 @@ include($p);
 $(function() {
 	$('#nav_kids').activate();
 	document.title = 'Community Leisure-Learn | Saturday\'s Kids';
+	$('#about').fetch('Sat Kids - About');
+	$('#when').fetch('Sat Kids - When');
+	$('#where').fetch('Sat Kids - Where');
+	$('#cost').fetch('Sat Kids - Cost');
 });
 
 </script>
@@ -31,22 +35,22 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>	
-		<?= grab('sat_kids'); ?>
+		<div id="about"></div>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>	
-		<?= grab('sat_kids_when'); ?>
+		<div id="when"></div>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Where</h2></div>	
-		<?= grab('sat_kids_where'); ?>
+		<div id="where"></div>
 	</div>
 
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>	
-		<?= grab('sat_kids_cost'); ?>
+		<div id="cost"></div>
 	</div>
 	
 

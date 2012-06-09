@@ -8,6 +8,10 @@ include('../include/header.php');
 
 $(function() {
 	$('#nav_kids').activate();
+	$('#about').fetch('PAWS - About');
+	$('#when').fetch('PAWS - When');
+	$('#where').fetch('PAWS - Where');
+	$('#cost').fetch('PAWS - Cost');
 });
 
 </script>
@@ -28,22 +32,22 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		<?= grab('paws'); ?>
-		</div>
+		<div id="about"></div>
+	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		<?= grab('paws_when'); ?>
+		<div id="when"></div>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Where</h2></div>
-		<?= grab('paws_where'); ?>
+		<div id="where"></div>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>
-		<?= grab('paws_cost'); ?>
+		<div id="cost"></div>
 	</div>
 
 

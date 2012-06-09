@@ -8,6 +8,7 @@ include('../include/header.php');
 
 $(function() {
 	$('#nav_community').activate();
+	$('#comm').fetch('Community Programs');
 });
 
 </script>
@@ -30,7 +31,7 @@ $(function() {
 
 	<div class="text">
 		<h3>Community Events</h3>
-		<p><?= grab('comm_programs'); ?></p>
+		<div id="comm"></div>
 	</div>
 
 

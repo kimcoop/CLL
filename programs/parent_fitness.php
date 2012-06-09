@@ -8,6 +8,8 @@ include('../include/header.php');
 
 $(function() {
 	$('#nav_adults').activate();
+	$('#about').fetch('Parent Fitness - About');
+	$('#when').fetch('Parent Fitness - When');
 });
 
 </script>
@@ -28,12 +30,12 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		<?= grab('parent_fitness'); ?>
-	</div>
+		<div id="about"></div>
+</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		<?= grab('parent_fitness_when'); ?>
+		<div id="when"></div>
 	</div>
 
 

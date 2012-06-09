@@ -8,6 +8,9 @@ include('../include/header.php');
 
 $(function() {
 	$('#nav_kids').activate();
+	$('#about').fetch('PACK - About');
+	$('#when').fetch('PACK - When');
+	$('#cost').fetch('PACK - Cost');
 });
 
 </script>
@@ -29,17 +32,17 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		<?= grab('pack'); ?>
+		<div id="about"></div>
 	</div>
 
 	<div class="text">
 		<div class="bubble"><h2>When</h2></div>
-		<?= grab('pack_when'); ?>
+		<div id="when"></div>
 	</div>
 	
 	<div class="text">
 		<div class="bubble"><h2>Cost</h2></div>
-		<?= grab('pack_cost'); ?>
+		<div id="cost"></div>
 	</div>
 	
 	<div class="text">
