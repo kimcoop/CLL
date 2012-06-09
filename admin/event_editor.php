@@ -3,16 +3,19 @@
 	margin: 5px 10px;
 }
 
-table {
+#event_table {
 	margin: 0px auto;
 	margin-bottom: 10px;
+	margin-left: 0;
 }
 
-td, th {
+#event_table td, #event_table th {
 	text-align: center;
+	min-width: 250px;
+	width: 250px;
 }
 
-td input {
+#event_table td input {
 	width: 200px;
 	max-width: 200px;
 	word-wrap: break-word;
@@ -32,12 +35,47 @@ textarea {
 	width: 20px;
 }
 
-#event_table {
-	margin-left: 0px;
-}
-
 
 </style>
+<script type="text/javascript">
+
+$(function() {
+
+	//get events
+	// put them in event_list
+	
+	var list = $('#event_list');
+	var eventsGroup = Parse.Collection.extend({
+		model: 'event'
+	});
+	
+	var collection = new eventsGroup;
+	collection.fetch({
+		success: function(collection) {
+			collection.each(function(object) { // iterate
+				
+				list.append(
+				
+					"<tr>" +
+							 "<td>"+object.get("name")+"</td>" +
+							 "<td>"+object.get("start")+"</td>" +
+							 "<td>"+object.get("end")+"</td>" +
+							 "<td>"+object.get("details")+"</td>" +
+					"</tr>"
+				
+				);				
+				
+			})
+		},
+		error: function(collection, error) {
+				alert('The collection could not be retrieved. ' + error);
+			}
+		});
+
+
+});
+
+</script>
 
 <table id="event_table">
 	<thead>
@@ -47,49 +85,10 @@ textarea {
 		<th>Details</th>
 		<th class="small"></th>
 	</thead>
-	<tbody>
-		
-
-<?
-
-	$lines = explode('%%', $page_content);
-	$count = 0;
-	foreach ($lines as $line) {
 	
-		if (!empty($line)) {
-	
-			$event = explode('##', $line);
-			
-			$title = escape($event[0]);
-			$date = $event[1];
-			$end_date = $event[2];
-			$details = escape($event[3]);
-			
-			?>
-			<tr class='event_row'>
-				<td><input class='event' type='text' value="<?= $title ?>"/></td>
-				<td><input class='event date' type='text' value="<?= $date ?>"/></td>
-				<td><input class='event date' type='text' value="<?= $end_date ?>"/></td>
-				<td><textarea class='event' type='textarea'><?= $details ?></textarea></td>
-				<td><span class='delete'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
-			</tr>
-			<?
-			$count++;
-		}
-	} // foreach	
-	
-	?>
-	
+	<tbody id="event_list">	
 	</tbody>
+	
 	</table>
 	
 	<a class='submit' id='new_event'>New Event</a>
-	
-	<?
-	
-	function escape($str) {
-		return stripslashes($str);
-	}
-
-
-?>

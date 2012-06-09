@@ -173,8 +173,8 @@
 		$('#tabs li h3').click(function() {
 			
 			var id = this.id;
-			$('#tabs li h3').removeClass('active');
-			$(this).addClass('active');
+			$('#tabs li').removeClass('active');
+			$(this).parent().addClass('active');
 			$('.section').hide();
 			$('#section_'+id).show();
 		
@@ -242,8 +242,9 @@ h3 {
 }
 
 .section {
+	font-family: "Helvetica Neue", arial;
 	margin: -8px 0 10px 6px;
-	padding: 0 10px;
+	padding: 5px 10px;
 	border: 2px solid #000;
 }
 
@@ -308,7 +309,7 @@ h3 {
 				</div><!-- #content_edit -->
 				
 				<div id="section_cal" class="section" style="display:none">
-					Calendar events here
+					<? include('event_editor.php'); ?>
 				</div><!-- #cal_edit -->
 				
 			</form>
