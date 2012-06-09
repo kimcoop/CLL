@@ -28,11 +28,6 @@
 	<link href="http://code.jquery.com/ui/1.8.19/themes/base/jquery-ui.css" rel='stylesheet' type='text/css'>
 
 	<script src="http://www.parsecdn.com/js/parse-1.0.2.min.js"></script>
-	<script type="text/javascript">
-	
-		Parse.initialize("Ji2ce107tebyCJEC31gGvyvZ24YsBVV2m1ES0VHz", "MICUaupejbUuLurojUgkZpyFGQWjLDrtJZAzcqxz");
-	
-	</script>
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/ui/1.8.20/jquery-ui.min.js"></script>
@@ -40,7 +35,18 @@
 	<script type='text/javascript' src='wymeditor/jquery.wymeditor.pack.js'></script>
 	<script type='text/javascript'>
 	$(function() {
-	
+		
+	/*
+					{
+						skin: "minimal",
+						skinPath: 'wymeditor/skins/minimal/',
+						toolsHtml: '',
+						classesHtml: ''
+					}
+	  */
+
+		Parse.initialize("Ji2ce107tebyCJEC31gGvyvZ24YsBVV2m1ES0VHz", "MICUaupejbUuLurojUgkZpyFGQWjLDrtJZAzcqxz");
+		
 		var pagesGroup = Parse.Collection.extend({
 			model: 'page'
 		});
@@ -50,7 +56,7 @@
 		collection.fetch({
 			success: function(collection) {
 				collection.each(function(object) {
-					page_list.append('<li><a href="#" class="page_link">'+ object.get("name") +'</a></li>');
+					page_list.append('<li class="page_link"><a href="#">'+ object.get("name") +'</a></li>&nbsp;');
 				});
 			},
 			error: function(collection, error) {
@@ -58,38 +64,38 @@
 			}
 		});
 	
-		$('.page_link').click(function() {
-		
-		var pageName = $(this).text();
-		var pageToFetch = Parse.Object.extend("page");
-		var query = new Parse.Query(pageToFetch);
-		
-		query.equalTo("name", pageName);
-		query.find({
-			success: function(result) {
-				var str = result[0].get("content");
-				alert(str);
-				$('#page-code').text(str);
-			},
-			error: function(error) {
-				console.log("Error: " + error.code + " " + error.message);
-			}
-		});
+		$('.page_link').live('click', function() {
+			var pageName = $(this).text();
+			var pageToFetch = Parse.Object.extend("page");
+			var query = new Parse.Query(pageToFetch);
 			
-		
+			query.equalTo("name", pageName);
+			query.find({
+				success: function(result) {
+					var str = result[0].get("content");
+					
+					if ($('.wym_skin_default').length > 0) {
+						$('.wym_skin_default').remove();
+						$('.editor').remove();
+					}
+					
+					$('#page_list').after(
+						"<textarea class='editor' name='page_code' id='page_code' style='display:none'></textarea><br>"
+					);
+					$('#page_code').text(str).wymeditor().show();
+					
+					$('.editor').hide();
+				},
+				error: function(error) {
+					console.log("Error: " + error.code + " " + error.message);
+				}
+			});
 		
 		}); // page_link.click
-	
-	  $("#page-code").wymeditor({
-			skin: "minimal",
-			skinPath: 'wymeditor/skins/minimal/',
-			toolsHtml: '',
-			classesHtml: ''
-	  });
+		
+	  $("#page_code_save").hide().after("<a class='submit' id='pseudo_submit'>Save</a>");
 	  
-	  $("#page-code-save").hide().after("<a class='submit' id='pseudo_submit'>Save</a>");
-	  
-	  $("#pseudo_submit").click(function() {
+	  $("#pseudo_submit").live('click', function() {
 	  	var code = '';
 	  	if ($("#event_table").length > 0) { // grab the text from the events table rows
 				
@@ -117,11 +123,8 @@
 				
 			} else {
 				code = $.wymeditors(0).xhtml();
-				$('#page-code').text(code);
-				//$("#editor").submit();
-				
+				$('#page_code').text(code);
 				page = $('#page').attr('value');
-				alert(page + ' page ');
 				
 				var pageToSave = Parse.Object.extend("page");
 				var pageToSave = new pageToSave();
@@ -129,7 +132,7 @@
 				pageToSave.set("content", code);
 				pageToSave.save(null, {
 					success: function(pageToSave) {
-						alert('success!');
+						alert('Page saved.');
 					},
 					error: function(pageToSave, error) {
 						alert(Parse.Error);
@@ -258,14 +261,8 @@ h3 {
 				Simply click on one of the links to view its current contents, then make your edits and hit the "Save" button at the bottom. (Save button will appear once a link is clicked.)</p>
 		
 				<ul id='page_list' class='controls'></ul>
-				
-				<?
-				
-				echo "<textarea name='page-code' id='page-code'>" . str_replace("</textarea>","</*textarea*>", $page_content). "</textarea><br />";
-				echo "<input type='submit' class='submit' id='page-code-save' name='page-code-save' value='save'/>";
-				
+				<input type='submit' class='submit' id='page_code_save' name='page_code_save' value='save'/>	
 			
-			?>
 			</form>
 			
 		<? } ?>

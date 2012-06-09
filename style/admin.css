@@ -3,18 +3,23 @@ body {
 }
 
 ul {
-	padding-left:0;margin-left:0;
+	padding-left:0;
+	margin-left:0;
 }
 
 li {
-	background:#58A;padding:3px 6px;margin:6px;display:inline;border-radius:6px;-webkit-border-radius:6px;-moz-border-radius:6px;
+	background:#58A;
+	padding:3px 6px;
+	margin:6px;
+	display:inline;
+	border-radius:6px;-webkit-border-radius:6px;-moz-border-radius:6px;
 }
 
-a {
+a.page_link {
 	text-decoration:none;color:#fff;font-weight:bold;font-size: .7em;
 }
 
-form {
+#editor {
 	clear: both;
 	width: 95%;
 	text-align: left;
@@ -22,7 +27,9 @@ form {
 }
 
 iframe {
-	padding:15px;border:solid 2px #DDD; border-radius:6px;-webkit-border-radius:6px;-moz-border-radius:6px; width: 100%;
+	//padding:15px;
+	border:solid 2px #DDD;
+	width: 100%;
 }
 
 .submit, ul.controls li {
@@ -41,12 +48,12 @@ iframe {
 	position: relative;
 	cursor: pointer;
 	margin: 10px 0;
-	font-size: 1.4em;
 	font-family:"Helvetica Neue Light", Helvetica, Arial, sans-serif;
 }
 
 .wym_section h2 {
-	display:none!important
+	font-family:"Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	font-size: 1.9em;
 }
 
 h3.success {
