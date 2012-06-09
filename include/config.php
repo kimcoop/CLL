@@ -1,10 +1,8 @@
 <?
 	session_start();
 
-	$GLOBALS['root'] = 'http://localhost:8888'; // change this when site changes domains/hosts
-
-	$path =  $_SERVER['DOCUMENT_ROOT'];
-	$path .= '/include/functions.php';
+	$GLOBALS['root'] = 'http://www.cll.pitt.edu/draft';
+	$path = 'functions.php';
 	include($path);
 	
 // editor.php **
@@ -33,9 +31,25 @@
 	'Saturday\'s Kids - Cost' => 'sat_kids_cost',
 	'Saturday\'s Kids - Where' => 'sat_kids_where',
 	'Saturday\'s Kids - When' => 'sat_kids_when',
+	'Community Programs' => 'comm_programs',
 	'Contact' => 'contact',
-	'Calendar Events' => 'events',
 	'Location' => 'location'
 );
+
+/* Include when ready
+	'Calendar Events' => 'events',
+*/
+
+	define("DB_HOST", "localhost");
+	define("DB_USER", "pittcll");
+	define("DB_PASS", "pittcll");
+	define("DB_DATABASE", "pittcll");
+	
+	define("TABLE_CONTENT", "content");
+
+	function db() { // connect with MySQL
+		mysql_connect(DB_HOST, DB_USER, DB_PASS) or die('Error connecting to mysql'.mysql_error());
+		mysql_selectdb(DB_DATABASE) or die('Error selecting database'.mysql_error());
+	}
 
 ?>

@@ -1,9 +1,10 @@
 <? 
-
+	define('ADMINPASS', 'c6b6e01fa9e25f7a126ab76b1bcb53cc');
+	
 	include('../include/config.php'); 
 	session_start();
 	
-	$homepage = $GLOBALS['site'] . '/index.php';
+	$homepage = $GLOBALS['root'] . '/index.php';
 	
 	if (!isset($_SESSION['admin']) && !isset($_GET['do'])) {
 		header("location:" .$homepage);
@@ -16,16 +17,7 @@
 
 ?>
 
-<!DOCTYPE html> 
-
-<?
-
-	$files = array();
-	foreach ($editable_pages as $handle => $filename) {
-		$files[] = $filename;
-	}
-
-?>
+<!DOCTYPE html>
 
 <html> 
 <head>
@@ -35,28 +27,58 @@
 	<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 	<link href="http://code.jquery.com/ui/1.8.19/themes/base/jquery-ui.css" rel='stylesheet' type='text/css'>
 
+	<script src="http://www.parsecdn.com/js/parse-1.0.2.min.js"></script>
+	<script type="text/javascript">
+	
+		Parse.initialize("Ji2ce107tebyCJEC31gGvyvZ24YsBVV2m1ES0VHz", "MICUaupejbUuLurojUgkZpyFGQWjLDrtJZAzcqxz");
+	
+	</script>
+
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/ui/1.8.20/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../js/jquery-ui-timepicker-addon.js"></script>
 	<script type='text/javascript' src='wymeditor/jquery.wymeditor.pack.js'></script>
 	<script type='text/javascript'>
-	$(function() { 
+	$(function() {
 	
-		$('.date').datetimepicker({
-			ampm: true
+		var pagesGroup = Parse.Collection.extend({
+			model: 'page'
 		});
 		
-		$('.delete').click(function() {
-		
-			var t = confirm('Delete this event?');
-			if (t) {
-				var el = $(this).parent().parent('tr');
-				el.fadeOut('slow', function() {
-					el.detach();
+		var page_list = $('#page_list');
+		var collection = new pagesGroup;
+		collection.fetch({
+			success: function(collection) {
+				collection.each(function(object) {
+					page_list.append('<li><a href="#" class="page_link">'+ object.get("name") +'</a></li>');
 				});
+			},
+			error: function(collection, error) {
+				// The collection could not be retrieved.
 			}
+		});
+	
+		$('.page_link').click(function() {
 		
-		}); // delete click
+		var pageName = $(this).text();
+		var pageToFetch = Parse.Object.extend("page");
+		var query = new Parse.Query(pageToFetch);
+		
+		query.equalTo("name", pageName);
+		query.find({
+			success: function(result) {
+				var str = result[0].get("content");
+				alert(str);
+				$('#page-code').text(str);
+			},
+			error: function(error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+			
+		
+		
+		}); // page_link.click
 	
 	  $("#page-code").wymeditor({
 			skin: "minimal",
@@ -94,10 +116,30 @@
 				});
 				
 			} else {
-				code = jQuery.wymeditors(0).xhtml();
+				code = $.wymeditors(0).xhtml();
 				$('#page-code').text(code);
-				$("#editor").submit();
-	  		return false;
+				//$("#editor").submit();
+				
+				page = $('#page').attr('value');
+				alert(page + ' page ');
+				
+				var pageToSave = Parse.Object.extend("page");
+				var pageToSave = new pageToSave();
+				pageToSave.set("name", page);
+				pageToSave.set("content", code);
+				pageToSave.save(null, {
+					success: function(pageToSave) {
+						alert('success!');
+					},
+					error: function(pageToSave, error) {
+						alert(Parse.Error);
+						// error is a Parse.Error with an error code and description.
+					}
+				});
+				
+				
+	  		return false;	
+	  		
 	  	}
 	  });
 	  
@@ -113,6 +155,22 @@
 	  	table.append(el);
 	  	
 	  }); // new_event click
+	
+		$('.date').datetimepicker({
+			ampm: true
+		});
+		
+		$('.delete').click(function() {
+		
+			var t = confirm('Delete this event?');
+			if (t) {
+				var el = $(this).parent().parent('tr');
+				el.fadeOut('slow', function() {
+					el.detach();
+				});
+			}
+		
+		}); // delete click
 	  
 	});
 	</script>
@@ -180,7 +238,7 @@ h3 {
 			
 		<? }
 		
-		$pass = 'c6b6e01fa9e25f7a126ab76b1bcb53cc';
+		$pass = ADMINPASS;
 		if (isset($_POST['password']) && md5($_POST['password']) != $pass) {
 				echo 'Incorrect pass';
 		} else if (isset($_POST['password']) && md5($_POST['password']) == $pass) { // passwords match
@@ -199,50 +257,13 @@ h3 {
 				<p>Welcome to your site editor! This tool will allow you to edit the text on your pages without ever having to look at the code, like a word processor. 
 				Simply click on one of the links to view its current contents, then make your edits and hit the "Save" button at the bottom. (Save button will appear once a link is clicked.)</p>
 		
+				<ul id='page_list' class='controls'></ul>
+				
 				<?
-		
-				echo "<ul class='controls'>";
-				foreach ($editable_pages as $handle => $filename) {
-					$pagelink = str_replace(" ", "_", $handle);
-					echo "<li><a href='?page=" .$filename. "'>" .$handle. "</a></li>\n";
-				}
-				echo "</ul>";
 				
-				if (!empty($_POST['page-code'])) { //if a page was saved
+				echo "<textarea name='page-code' id='page-code'>" . str_replace("</textarea>","</*textarea*>", $page_content). "</textarea><br />";
+				echo "<input type='submit' class='submit' id='page-code-save' name='page-code-save' value='save'/>";
 				
-					$output_file = '../content/text/' . $_GET['page'] . '.txt'; //fix any textarea tags, strip slashes and attempt to save file
-					
-					if (!empty($_POST['content'])) {
-						$saved_file = file_put_contents($output_file, $_POST['content']);
-					} else {
-						$saved_file = file_put_contents($output_file, stripslashes(str_replace("</*textarea*>", "</textarea>", $_POST['page-code'])));
-					}
-					if ($saved_file) {
-						echo "<h3 class='success centered'>Your page was updated successfully!</h3>";
-					} else {
-						echo "<h3 class='error centered'>Uh-oh, your changes were unable to be saved.</h3>";
-					}
-				}
-		
-			if (isset($_GET['page']) && in_array($_GET['page'], $files)) { //If a page is specified and it's in our array of editable pages
-			
-				$input_file = '../content/text/' . $_GET['page'] . '.txt'; //Get the filename from $editable_pages and the content from that file
-				$page_content = file_get_contents($input_file);
-		
-				if ($page_content) {// if get page worked, obfuscate any textarea tags that would mess up the display and print content inside a textarea
-					
-					if ($_GET['page'] == 'events') {
-						include('event_editor.php');			
-					} else {
-						echo "<textarea name='page-code' id='page-code'>" . str_replace("</textarea>","</*textarea*>", $page_content). "</textarea><br />";
-					}
-					
-					echo "<input type='submit' class='submit' id='page-code-save' name='page-code-save' value='save'/>";
-				} else { // *If it didn't work, display an error message
-					echo "<p>Uh-oh - that page was unable to be accessed. Please try again.</p>";
-				}
-				
-			} // else no page specified
 			
 			?>
 			</form>

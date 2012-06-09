@@ -16,7 +16,7 @@ $(function() {
 
 		<img src="../images/comm_scene.png" height="110" />
 		<br><br>
-		<h1 id="title">Community Programs</h1>
+		<h1 id="title">Community Events</h1>
 
 
 </div> <!-- end /#title_container -->
@@ -29,10 +29,9 @@ $(function() {
 </div>
 
 	<div class="text">
-		<h3>asdf</h3>
-		<p>asdf</p>
+		<h3>Community Events</h3>
+		<p><?= grab('comm_programs'); ?></p>
 	</div>
-
 
 
 <?
