@@ -22,27 +22,31 @@ $(function() {
 
 function getEvents() {
 
-	var events_arr = new Array();
-	var dataString = 'action=getEvents';
-	var file = '../include/functions.php';
-
-	$.ajax({ 
-			 type: 'post',
-			 dataType: 'json',
-			 url: file,
-			 data: dataString,
-			 success: function(data) {
-			 	
-			 	$(data.response).each(function(i, val) {
-			 		events_arr.push({
+			 	/*	events_arr.push({
 			 			'title': val.title,
-			 			'start': val.timestamp,
+			 			'start': val.start,
 			 			'end' : val.end,
 			 			'allDay': false,
 			 			'id': val.details // sneak the details in here for onclick events
-			 		});
-			 		
-			 	}); // end each
+			 		});*/
+	var events_arr = new Array();
+	
+	var eventsGroup = Parse.Collection.extend({
+		model: 'event'
+	});
+	
+	var collection = new eventsGroup;
+	collection.fetch({
+		success: function(collection) {
+			collection.each(function(object) {
+			
+				events_arr.push({
+					'title': object.get("name"),
+					'start': object.get("start"),
+					'end': object.get("end"),
+					'allDay': false,
+					'id' : object.get("details")					
+				});			
 				
 				$('#calendar').fullCalendar({
 					editable: true,
@@ -57,16 +61,16 @@ function getEvents() {
 							'left':x-3
 						}).html("<span class='close' id='close_details'>[x]</span><h2>"+calEvent.title+"</h2><p>"+details+"</p>");
 						
-					}
-				});
-			
-			}, // end success
-			error: function(xhr, textStatus, errorThrown) {
-					console.log(arguments);
-					console.log('Request failed. ' +textStatus+ ': ' + errorThrown);
+					} // eventClick
+				}); // fullCal
+			})
+		},
+		error: function(collection, error) {
+				alert('The collection could not be retrieved. ' + error);
 			}
-	}); // end ajax
-};
+		});
+		
+	};
 
 </script>
 
