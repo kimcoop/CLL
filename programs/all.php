@@ -8,6 +8,11 @@ include('../include/header.php');
 
 $(function() {
 	$('#nav_home').activate();
+	$('sat_kids').fetch('Sat Kids');
+	$('paws').fetch('PAWS');
+	$('#pack').fetch('PACK');
+	$('#pf').fetch('Parent Fitness');
+	$('#gp').fetch('Guest Pass');
 });
 
 </script>
@@ -33,13 +38,13 @@ $(function() {
 		</div>
 		
 			<h3><a href="saturdays_kids.php">Saturday's Kids</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
-			<?= grab('sat_kids_about'); ?>
+			<div id="sat_kids"></div>
 	
 			<h3><a href="paws.php">PAWS</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
-			<?= grab('paws_about'); ?>
+			<div id="paws"></div>
 			
 			<h3><a href="pack.php">PACK</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>	
-			<?= grab('pack_about'); ?>
+			<div id="pack"></div>
 			
 	</div>
 	
@@ -50,28 +55,11 @@ $(function() {
 		</div>
 			
 			<h3><a href="parent_fitness.php">Parent Fitness 101</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
-			<?= grab('parent_fitness_about'); ?>
+			<div id="pf"></div>
 			
 			<h3><a href="guest_pass.php">Guest Pass</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
-			<?= grab('guest_pass_about'); ?>
+			<div id="gp"></div>
 	</div>
-	
-	<!--
-
-	<div class="text">
-		
-			<div class="bubble linked">
-				<a href="community_programs.php"><h2 style="margin-top:-1px">Comm-<br>unity<br>Events</h2></a>
-			</div>
-			
-			<h3>asdf</h3>
-			<p>adsf</p>
-			
-			<h3>asdf</h3>
-			<p>asdf</p>
-			
-	</div>
--->
 
 <?
 

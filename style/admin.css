@@ -27,7 +27,6 @@ a.page_link {
 }
 
 iframe {
-	//padding:15px;
 	border:solid 2px #DDD;
 	width: 100%;
 }
@@ -48,6 +47,7 @@ iframe {
 	position: relative;
 	cursor: pointer;
 	margin: 10px 0;
+	font-size: 1em;
 	font-family:"Helvetica Neue Light", Helvetica, Arial, sans-serif;
 }
 

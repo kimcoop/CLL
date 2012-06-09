@@ -9,6 +9,8 @@ include('../include/header.php');
 
 $(function() {
 	$('#nav_adults').activate();
+	$('#pf').fetch('Parent Fitness');
+	$('#gp').fetch('Guess Pass');
 });
 
 </script>
@@ -29,11 +31,11 @@ $(function() {
 
 	<div class="text">
 		<h3><a href="parent_fitness.php">Parent Fitness 101</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
-		<?= grab('parent_fitness_about'); ?>
+		<div id="pf"></div>
 	</div>	
 	<div class="text">
 		<h3><a href="guest_pass.php">Guest Pass</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>
-		<?= grab('guest_pass_about'); ?>
+		<div id="gp"></div>
 	</div>
 	
 

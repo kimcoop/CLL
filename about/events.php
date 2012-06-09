@@ -4,6 +4,13 @@ include('../include/header.php');
 
 ?>
 
+<script type="text/javascript">
+$(function() {
+	$('#events').fetch('Homepage - Events');
+});
+</script>
+
+
 <div id="title_container">
 
 		<img src="../images/calendar.png" height="150" />
@@ -25,7 +32,7 @@ include('../include/header.php');
 		</div>
 		<div style="width: 98%; margin: 10px auto;">
 			<h3>Upcoming Events</h3>
-			<?= grab('index_events'); ?>
+			<div id="events"></div>
 		</div>
 	</div>
 	

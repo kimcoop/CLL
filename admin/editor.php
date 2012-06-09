@@ -1,5 +1,6 @@
 <? 
 	define('ADMINPASS', 'c6b6e01fa9e25f7a126ab76b1bcb53cc');
+	define('INTRO', 'Welcome to your site editor! This tool allows you to edit the text on your pages without looking at the code, like a Word Processor. Click on a page link below to get started.');
 	
 	include('../include/config.php'); 
 	session_start();
@@ -27,6 +28,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 	<link href="http://code.jquery.com/ui/1.8.19/themes/base/jquery-ui.css" rel='stylesheet' type='text/css'>
 
+	<script src="../js/main.js" type="text/javascript"></script>
 	<script src="http://www.parsecdn.com/js/parse-1.0.2.min.js"></script>
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -35,15 +37,6 @@
 	<script type='text/javascript' src='wymeditor/jquery.wymeditor.pack.js'></script>
 	<script type='text/javascript'>
 	$(function() {
-		
-	/*
-					{
-						skin: "minimal",
-						skinPath: 'wymeditor/skins/minimal/',
-						toolsHtml: '',
-						classesHtml: ''
-					}
-	  */
 
 		Parse.initialize("Ji2ce107tebyCJEC31gGvyvZ24YsBVV2m1ES0VHz", "MICUaupejbUuLurojUgkZpyFGQWjLDrtJZAzcqxz");
 		
@@ -83,6 +76,7 @@
 						"<textarea class='editor' name='page_code' id='page_code' style='display:none'></textarea><br>"
 					);
 					$('#page_code').text(str).wymeditor().show();
+					$('#page_code_save').show();
 					
 					$('.editor').hide();
 				},
@@ -92,10 +86,8 @@
 			});
 		
 		}); // page_link.click
-		
-	  $("#page_code_save").hide().after("<a class='submit' id='pseudo_submit'>Save</a>");
 	  
-	  $("#pseudo_submit").live('click', function() {
+	  $("#page_code_save").live('click', function() {
 	  	var code = '';
 	  	if ($("#event_table").length > 0) { // grab the text from the events table rows
 				
@@ -257,12 +249,9 @@ h3 {
 		
 			<form id="editor" method="post" action="<? $_SERVER['PHP_SELF']; ?>">
 				<h2>CLL Admin</h2>
-				<p>Welcome to your site editor! This tool will allow you to edit the text on your pages without ever having to look at the code, like a word processor. 
-				Simply click on one of the links to view its current contents, then make your edits and hit the "Save" button at the bottom. (Save button will appear once a link is clicked.)</p>
-		
+				<p><?= INTRO ?>
 				<ul id='page_list' class='controls'></ul>
-				<input type='submit' class='submit' id='page_code_save' name='page_code_save' value='save'/>	
-			
+				<input type='submit' class='submit' id='page_code_save' name='page_code_save' value='Save' style='display:none'/>				
 			</form>
 			
 		<? } ?>

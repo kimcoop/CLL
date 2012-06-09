@@ -4,6 +4,12 @@ include('../include/header.php');
 
 ?>
 
+<script type="text/javascript">
+$(function() {
+	$('#contact').fetch('Contact');
+});
+</script>
+
 <div id="title_container">
 
 		<img src="../images/contact.png" height="150" />
@@ -14,15 +20,11 @@ include('../include/header.php');
 
 <div id="container">
 
-<div class="breadcrumb">
-	About &raquo; Contact
-</div>
-
-	<div class="text">
-		<?= grab('contact'); ?>
+	<div class="breadcrumb">
+		About &raquo; Contact
 	</div>
 
-
+	<div id="contact" class="text"></div>
 
 <?
 

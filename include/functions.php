@@ -1,23 +1,12 @@
 <?
 
+function grab($name) {
+
+return $name; }
 	
 if (isset($_POST['action']) && $_POST['action']=='getEvents') {
 	getEvents();
-}	
-	
-function grab($name) {
-
-		$file = 'content/text/' .$name. '.txt';
-		$upfile = '../content/text/' .$name. '.txt';
-		if (file_exists($file)) {
-			$out = file_get_contents($file);
-		} else {
-			$out = file_get_contents($upfile);
-		}
-		
-		return $out;
-		
-} // grab
+}
 
 function getEvents() {
 	$lines = explode('%%', grab('events'));
