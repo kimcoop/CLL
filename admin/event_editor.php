@@ -69,9 +69,9 @@ $(function() {
 							 "</td></tr>";
 	  	table.append(el);
 	
-			$('.date').datetimepicker({
-				ampm: true
-			}); // reset so it works
+		$('.date').datetimepicker({
+			ampm: true
+		}); // reset so it works
 	  	
 	  }); // new_event click
 	
@@ -138,9 +138,10 @@ $(function() {
 		var name = row.children('.name').children('input').attr('value');
 		var start = row.children('.start').children('input').attr('value');
 		var end = row.children('.end').children('input').attr('value');
-		$.parse.post('event/'+id, {
+		$.parse.post('event/'+id, ({
 			details : details,
-			}, function(json){
+			name: name
+			}), function(json){
 			row.event_notify();
 		}, function() {
 			console.log("Error updating event.");

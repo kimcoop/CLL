@@ -1,7 +1,7 @@
 body {
   color: #ccc;
   width: 100%;
-  background: url("../images/cathedral_closeup_wide.jpg") no-repeat top center;
+  background: url('../images/cathedral_closeup_wide.jpg') no-repeat top center;
   background-attachment: fixed;
   background-size: 100%;
   font-size: 12pt;
@@ -19,7 +19,7 @@ body {
   float: right; }
 
 #header {
-  background: transparent url("../images/coarkboard.png") repeat top center;
+  background: transparent url('../images/coarkboard.png') repeat top center;
   width: 1200px;
   height: 440px;
   border: 6px solid #000;
@@ -28,7 +28,7 @@ body {
   margin-bottom: 0; }
 
 #cover {
-  background: url("../images/pattern_black.png") left top repeat;
+  background: url('../images/pattern_black.png') left top repeat;
   position: relative;
   padding-top: 10px;
   margin: 0;
@@ -87,7 +87,7 @@ body #container {
   text-align: right; }
 
 .bubble {
-  background: url("../images/bubble.png") no-repeat top center;
+  background: url('../images/bubble.png') no-repeat top center;
   height: 91px;
   width: 91px;
   padding: 20px 0;
@@ -96,13 +96,14 @@ body #container {
   margin: -12px 0 0 -120px;
   font-family: times;
   color: #000;
-  text-align: top; }
-  .bubble.linked:hover {
-    background: url("../images/bubble_red.png") no-repeat top center;
-    cursor: pointer; }
-  .bubble.linked a:hover {
-    text-decoration: underline;
-    color: #000; }
+  text-align: top;
+  &.linked {
+    &:hover {
+      background: url('../images/bubble_red.png') no-repeat top center;
+      cursor: pointer; }
+    a:hover {
+      text-decoration: underline;
+      color: #000; } } }
 
 .small_text {
   font-family: times;
@@ -113,14 +114,15 @@ body #container {
 img {
   border: none; }
 
-a:link, a:visited {
-  text-decoration: none;
-  color: #ccc;
-  border: none; }
-a:hover {
-  color: #fff;
-  text-decoration: underline;
-  border: none; }
+a {
+  &:link, &:visited {
+    text-decoration: none;
+    color: #ccc;
+    border: none; }
+  &:hover {
+    color: #fff;
+    text-decoration: underline;
+    border: none; } }
 
 h1, h2 {
   font-weight: normal;
@@ -136,51 +138,53 @@ h3 {
   text-shadow: 1px 1px 0px #bbb;
   font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif; }
 
-.text h3 a, .text a {
-  color: #003FCF; }
-.text h3 a:hover {
-  text-decoration: underline; }
+.text {
+  h3 a, a {
+    color: #003FCF; }
+  h3 a:hover {
+    text-decoration: underline; } }
 
 h2 {
   color: #000;
   font-size: 1.2em;
   line-height: .8em;
-  text-align: center; }
-  h2.small {
+  text-align: center;
+  &.small {
     padding-top: 3px;
-    font-size: 1em; }
+    font-size: 1em; } }
 
 .clearfix {
   clear: both;
   zoom: 1;
-  /* for IE < 8 */ }
-  .clearfix:before {
+  /* for IE < 8 */
+  &:before {
     content: ".";
     display: block;
     height: 0;
     overflow: hidden; }
-  .clearfix:after {
+  &:after {
     content: ".";
     display: block;
     height: 0;
     overflow: hidden;
-    clear: both; }
+    clear: both; } }
 
 .go {
   padding: 0 0 0 10px;
   width: 20px;
   height: 20px;
   display: inline;
-  background: url("../images/go.png") no-repeat top center; }
+  background: url('../images/go.png') no-repeat top center; }
 
-input[type="password"], input[type="search"], input[type="text"], input[type="textbox"], input[type="textarea"] {
-  border: 1px #C7C7C7 solid;
-  color: #333;
-  cursor: pointer;
-  padding: 0.1em 0.4em 0.1em 0.4em;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  cursor: text; }
+input {
+  &[type="password"], &[type="search"], &[type="text"], &[type="textbox"], &[type="textarea"] {
+    border: 1px #C7C7C7 solid;
+    color: #333;
+    cursor: pointer;
+    padding: 0.1em 0.4em 0.1em 0.4em;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    cursor: text; } }
 
 textarea, input[type="email"] {
   border: 1px #C7C7C7 solid;

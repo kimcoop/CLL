@@ -1,6 +1,6 @@
 #header {
-  background: url("../images/banner_bg.png") no-repeat top center;
-  background: url("../images/coark_texture.png") repeat top center;
+  background: url('../images/banner_bg.png') no-repeat top center;
+  background: url('../images/coark_texture.png') repeat top center;
   width: 1200px;
   height: 244px; }
 
@@ -19,26 +19,27 @@
   text-align: center;
   padding-top: 28px;
   overflow: hidden;
-  background: url("../images/notebook_paper_shortest.png") no-repeat top center; }
-  #title_container h1 {
+  background: url('../images/notebook_paper_shortest.png') no-repeat top center;
+  h1 {
     position: static;
     margin: 0 auto; }
-  #title_container img {
-    margin: 0 0 -10px 0; }
+  img {
+    margin: 0 0 -10px 0; } }
 
 /*
 */
+
 .breadcrumb {
   padding-left: 10px;
   font-size: 1em;
   font-family: Palatino, times; }
 
 .text {
-  padding: 10px 7px; }
-  .text h3 {
-    padding: 15px 0 0 0; }
-    .text h3:first-child {
-      padding-top: 0; }
+  padding: 10px 7px;
+  h3 {
+    padding: 15px 0 0 0;
+    &:first-child {
+      padding-top: 0; } } }
 
 /*
 */

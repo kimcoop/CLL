@@ -53,10 +53,11 @@ iframe {
   font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
   font-size: 1.9em; }
 
-h3.success {
-  color: #00CC66; }
-h3.error {
-  color: #FF9494; }
+h3 {
+  &.success {
+    color: #00CC66; }
+  &.error {
+    color: #FF9494; } }
 
 #pw_form {
   margin: 0px auto;
@@ -69,9 +70,9 @@ h3.error {
   margin: -1.7em 0 0 0;
   padding: 0 15px;
   display: inline;
-  color: #ccc; }
-  .link a:hover {
-    color: #003FCF; }
+  color: #ccc;
+  a:hover {
+    color: #003FCF; } }
 
 #back {
   float: left; }

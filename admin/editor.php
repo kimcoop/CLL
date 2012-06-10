@@ -27,13 +27,13 @@
 	<link type="text/css" rel="stylesheet" href="../style/base.css"/>
 	<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 	<link href="http://code.jquery.com/ui/1.8.19/themes/base/jquery-ui.css" rel='stylesheet' type='text/css'>
-
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 	<script src="http://www.parsecdn.com/js/parse-1.0.2.min.js"></script>
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/ui/1.8.20/jquery-ui.min.js"></script>
 <!--	<script src="../js/main.js" type="text/javascript"></script>-->
-	<script src = "../js/jquery.parse.js"></script>
+	<script type="text/javascript" src = "../js/jquery.parse.js"></script>
 	<script type="text/javascript" src="../js/jquery-ui-timepicker-addon.js"></script>
 	<script type='text/javascript' src='wymeditor/jquery.wymeditor.pack.js'></script>
 	<script type='text/javascript'>
@@ -95,55 +95,28 @@
 		}); // page_link.click
 	  
 	  $("#page_code_save").live('click', function() {
-	  	var code = '';
-	  	if ($("#event_table").length > 0) { // grab the text from the events table rows
+	  	var code = $.wymeditors(0).xhtml();
+		$('#page_code').text(code);
+		
+		var pageToFetch = Parse.Object.extend("page");
+		var query = new Parse.Query(pageToFetch);
+		var pageForUpdate = null;
+		
+		query.equalTo("name", selectedPage);
+		query.find({
+			success: function(result) {
+				pageForUpdate = result[0];
 				
-				$(".event_row").each(function() {
-					$(this).children('td').each(function() { // go through the cells, grab proper data
-						var el = $(this).children();
-						if (el.length > 0) { // if there are children
-							var val = el.attr('value');
-							if (val != undefined) code += val.trim();
-							else code += el.text().trim();
-							code += "##";
-						}
+					pageForUpdate.save({
+						content: code
 					});
-					if ($(this).text().length > 0) code += "%%";					
-				}); // each
+					alert('Page updated.'); // TODO
 				
-				$.post('actions.php', { 'action' : 'edit', 'file' : 'events.txt', 'content' : code }, function() {
-					//alert('posted: ' + code);
-					$('#event_table').before("<h3 id='event_success' class='success centered' style='display:none;margin-bottom:1em'>Event(s) saved!</h3>");
-					$('#event_success').fadeIn('slow', function() {
-						$(this).delay(1800).fadeOut('slow');
-					});
-					return false;
-				});
-				
-			} else {
-					code = $.wymeditors(0).xhtml();
-					$('#page_code').text(code);
-					
-					var pageToFetch = Parse.Object.extend("page");
-					var query = new Parse.Query(pageToFetch);
-					var pageForUpdate = null;
-					
-					query.equalTo("name", selectedPage);
-					query.find({
-						success: function(result) {
-							pageForUpdate = result[0];
-							
-								pageForUpdate.save({
-									content: code
-								});
-								alert('saved code : ' +code); // not getting right code
-							
-						},
-						error: function(error) {
-							console.log("Error: " + error.code + " " + error.message);
-						}
-					}); // query.find
-			} // else
+			},
+			error: function(error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		}); // query.find
 		}); // click
 		
 		$('#tabs li h3').click(function() {
