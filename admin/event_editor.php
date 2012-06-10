@@ -13,12 +13,19 @@
 	text-align: center;
 	min-width: 200px;
 	width: 200px;
+	height: 2em;
 }
 
 #event_table td input {
 	width: 200px;
 	max-width: 200px;
 	word-wrap: break-word;
+	height: 2em;
+}
+
+.delete, .update {
+	display: inline;
+	margin: 0 10px;
 }
 
 textarea {
@@ -51,6 +58,10 @@ $(function() {
 	  	el += "<td><textarea class='event' type='textarea' placeholder='Event details'></textarea></td>";
 	  	el += "</tr>";
 	  	table.append(el);
+	
+			$('.date').datetimepicker({
+				ampm: true
+			}); // reset so it works
 	  	
 	  }); // new_event click
 	
@@ -85,25 +96,39 @@ $(function() {
 			collection.each(function(object) { // iterate
 			
 				list.append(
-				
 					"<tr id='"+object.id+"'>" +
-							 "<td>"+object.get("name")+"</td>" +
-							 "<td>"+object.get("start")+"</td>" +
-							 "<td>"+object.get("end")+"</td>" +
-							 "<td>"+object.get("details")+"</td>" +
-							 "<td><div class='delete'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>" +
+							 "<td><input type='text' value='"+object.get("name")+"'/></td>" +
+							 "<td><input class='date' type='text' value='"+object.get("start")+"'/></td>" +
+							 "<td><input class='date' type='text' value='"+object.get("end")+"'/></td>" +
+							 "<td><input type='text' value='"+object.get("details")+"'/></td>" +
+							 "<td><div class='delete submit'>Delete</div>"+
+							 "<div class='update submit'>Save</div>" +
+							 "</td>" +
 					"</tr>"
-				
 				);				
 				
-			})
+			})// each		
+	
+			$('.date').datetimepicker({
+				ampm: true
+			}); // reset so it works
+			
 		},
 		error: function(collection, error) {
 				alert('The collection could not be retrieved. ' + error);
 			}
 		});
 		
-
+		
+	$('.update').live('click', function() {
+		var id = $(this).parent().parent('tr').attr('id');
+	/*
+		$.parse.put('event/od9867Vwd4',{ body : 'my updated text' }, function(json){
+			console.log(json);
+		}, optionalErrorCallback);
+	*/
+	
+	}); // update
 
 });
 
