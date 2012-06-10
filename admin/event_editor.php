@@ -11,8 +11,8 @@
 
 #event_table td, #event_table th {
 	text-align: center;
-	min-width: 250px;
-	width: 250px;
+	min-width: 200px;
+	width: 200px;
 }
 
 #event_table td input {
@@ -40,9 +40,39 @@ textarea {
 <script type="text/javascript">
 
 $(function() {
-
-	//get events
-	// put them in event_list
+	  
+	  $('#new_event').click(function() {
+	  
+	  	var table = $("#event_table");
+	  	var el = "<tr class='event_row'>";
+	  	el += "<td><input class='event' type='text' placeholder='Event title'/></td>";
+	  	el += "<td><input class='event date' type='text' placeholder='Event start'/></td>";
+	  	el += "<td><input class='event date' type='text' placeholder='Event end'/></td>";
+	  	el += "<td><textarea class='event' type='textarea' placeholder='Event details'></textarea></td>";
+	  	el += "</tr>";
+	  	table.append(el);
+	  	
+	  }); // new_event click
+	
+		$('.date').datetimepicker({
+			ampm: true
+		});
+		
+		$('.delete').live('click', function() {
+			var id = $(this).parent().parent('tr').attr('id');
+			var t = confirm('Delete this event?');
+			if (t) {
+				var deleteStr = 'event/'+id;
+				alert(deleteStr);
+				$.parse.delete(deleteStr, function() {
+					alert('Event deleted.');
+					el.fadeOut('slow', function() {
+						el.detach();
+					}); // fail handler unspecified
+				});
+			}
+		
+		}); // delete click
 	
 	var list = $('#event_list');
 	var eventsGroup = Parse.Collection.extend({
@@ -53,14 +83,15 @@ $(function() {
 	collection.fetch({
 		success: function(collection) {
 			collection.each(function(object) { // iterate
-				
+			
 				list.append(
 				
-					"<tr>" +
+					"<tr id='"+object.id+"'>" +
 							 "<td>"+object.get("name")+"</td>" +
 							 "<td>"+object.get("start")+"</td>" +
 							 "<td>"+object.get("end")+"</td>" +
 							 "<td>"+object.get("details")+"</td>" +
+							 "<td><div class='delete'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>" +
 					"</tr>"
 				
 				);				
@@ -71,6 +102,7 @@ $(function() {
 				alert('The collection could not be retrieved. ' + error);
 			}
 		});
+		
 
 
 });

@@ -28,17 +28,23 @@
 	<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 	<link href="http://code.jquery.com/ui/1.8.19/themes/base/jquery-ui.css" rel='stylesheet' type='text/css'>
 
-	<script src="../js/main.js" type="text/javascript"></script>
 	<script src="http://www.parsecdn.com/js/parse-1.0.2.min.js"></script>
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/ui/1.8.20/jquery-ui.min.js"></script>
+<!--	<script src="../js/main.js" type="text/javascript"></script>-->
+	<script src = "../js/jquery.parse.js"></script>
 	<script type="text/javascript" src="../js/jquery-ui-timepicker-addon.js"></script>
 	<script type='text/javascript' src='wymeditor/jquery.wymeditor.pack.js'></script>
 	<script type='text/javascript'>
 	$(function() {
 
 		Parse.initialize("Ji2ce107tebyCJEC31gGvyvZ24YsBVV2m1ES0VHz", "MICUaupejbUuLurojUgkZpyFGQWjLDrtJZAzcqxz");
+		$.parse.init({
+				app_id : "Ji2ce107tebyCJEC31gGvyvZ24YsBVV2m1ES0VHz", // <-- enter your Application Id here 
+				rest_key : "x8RJurTMtCqeth37bwcCSAQjJLZjmHlEBUZtnEKe" // <--enter your REST API Key here    
+		});
+		
 		var selectedPage = '';
 		var pagesGroup = Parse.Collection.extend({
 			model: 'page'
@@ -139,36 +145,6 @@
 					}); // query.find
 			} // else
 		}); // click
-	  
-	  $('#new_event').click(function() {
-	  
-	  	var table = $("#event_table");
-	  	var el = "<tr class='event_row'>";
-	  	el += "<td><input class='event' type='text' placeholder='Event title'/></td>";
-	  	el += "<td><input class='event date' type='text' placeholder='Event start'/></td>";
-	  	el += "<td><input class='event date' type='text' placeholder='Event end'/></td>";
-	  	el += "<td><textarea class='event' type='textarea' placeholder='Event details'></textarea></td>";
-	  	el += "</tr>";
-	  	table.append(el);
-	  	
-	  }); // new_event click
-	
-		$('.date').datetimepicker({
-			ampm: true
-		});
-		
-		$('.delete').click(function() {
-		
-			var t = confirm('Delete this event?');
-			if (t) {
-				var el = $(this).parent().parent('tr');
-				el.fadeOut('slow', function() {
-					el.detach();
-				});
-			}
-		
-		}); // delete click
-		
 		
 		$('#tabs li h3').click(function() {
 			
