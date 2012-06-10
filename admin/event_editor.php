@@ -60,11 +60,13 @@ $(function() {
 	  
 	  	var table = $("#event_table");
 	  	var el = "<tr class='event_row'>";
-	  	el += "<td><input class='event' type='text' placeholder='Event title'/></td>";
-	  	el += "<td><input class='event date' type='text' placeholder='Event start'/></td>";
-	  	el += "<td><input class='event date' type='text' placeholder='Event end'/></td>";
-	  	el += "<td><textarea class='event' type='textarea' placeholder='Event details'></textarea></td>";
-	  	el += "</tr>";
+	  	el += "<td class='name'><input type='text' placeholder='Event title'/></td>";
+	  	el += "<td class='start'><input class='date' type='text' placeholder='Event start'/></td>";
+	  	el += "<td class='end'><input class='date' type='text' placeholder='Event end'/></td>";
+	  	el += "<td class='details'><textarea placeholder='Event details'></textarea></td>" +
+							 "<td class='actions'><div class='create_event submit'>Create Event</div>" +
+							 "<div class='success' style='opacity:0'>Created.</div>" +
+							 "</td></tr>";
 	  	table.append(el);
 	
 			$('.date').datetimepicker({
@@ -108,7 +110,7 @@ $(function() {
 							 "<td class='name'><input type='text' value='"+object.get("name")+"'/></td>" +
 							 "<td class='start'><input class='date' type='text' value='"+object.get("start")+"'/></td>" +
 							 "<td class='end'><input class='date' type='text' value='"+object.get("end")+"'/></td>" +
-							 "<td class='details'><input type='text' value='"+object.get("details")+"'/></td>" +
+							 "<td class='details'><textarea>"+object.get("details")+"</textarea></td>" +
 							 "<td class='actions'><div class='delete submit'>Delete</div>"+
 							 "<div class='update submit'>Save</div>" +
 							 "<div class='success' style='opacity:0'>Updated.</div>" +
@@ -132,7 +134,23 @@ $(function() {
 	$('.update').live('click', function() {
 		var row = $(this).parent().parent('tr');
 		var id = row.attr('id');
-		var details = row.children('.details').children('input').attr('value');
+		var details = row.children('.details').children('textarea').text().trim();
+		var name = row.children('.name').children('input').attr('value');
+		var start = row.children('.start').children('input').attr('value');
+		var end = row.children('.end').children('input').attr('value');
+		$.parse.post('event/'+id, {
+			details : details,
+			}, function(json){
+			row.event_notify();
+		}, function() {
+			console.log("Error updating event.");
+		});
+	
+	}); // update
+	
+	$('.create_event').live('click', function() {
+		var row = $(this).parent().parent('tr');
+		var details = row.children('.details').children('textarea').text().trim();
 		var name = row.children('.name').children('input').attr('value');
 		var start = row.children('.start').children('input').attr('value');
 		var end = row.children('.end').children('input').attr('value');
@@ -142,10 +160,9 @@ $(function() {
 			row.event_notify();
 		}, function() {
 			console.log("Error updating event.");
-		});
+		});	
+	}); // create
 	
-	}); // update
-
 });
 
 $.fn.event_notify = function() {
