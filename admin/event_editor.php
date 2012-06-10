@@ -56,44 +56,44 @@ textarea {
 
 $(function() {
 	  
-	  $('#new_event').click(function() {
-	  
-	  	var table = $("#event_table");
-	  	var el = "<tr class='event_row'>";
-	  	el += "<td class='name'><input type='text' placeholder='Event title'/></td>";
-	  	el += "<td class='start'><input class='date' type='text' placeholder='Event start'/></td>";
-	  	el += "<td class='end'><input class='date' type='text' placeholder='Event end'/></td>";
-	  	el += "<td class='details'><textarea placeholder='Event details'></textarea></td>" +
-							 "<td class='actions'><div class='create_event submit'>Create Event</div>" +
-							 "<div class='success' style='opacity:0'>Created.</div>" +
-							 "</td></tr>";
-	  	table.append(el);
+  $('#new_event').click(function() {
+  
+  	var table = $("#event_table");
+  	var el = "<tr class='event_row'>";
+  	el += "<td class='name'><input type='text' placeholder='Event title'/></td>";
+  	el += "<td class='start'><input class='date' type='text' placeholder='Event start'/></td>";
+  	el += "<td class='end'><input class='date' type='text' placeholder='Event end'/></td>";
+  	el += "<td class='details'><textarea placeholder='Event details'></textarea></td>" +
+						 "<td class='actions'><div class='create_event submit'>Create Event</div>" +
+						 "<div class='success' style='opacity:0'>Created.</div>" +
+						 "</td></tr>";
+  	table.append(el);
+
+	$('.date').datetimepicker({
+		ampm: true
+	}); // reset so it works
+  	
+  }); // new_event click
+
+	$('.date').datetimepicker({
+		ampm: true
+	});
 	
-		$('.date').datetimepicker({
-			ampm: true
-		}); // reset so it works
-	  	
-	  }); // new_event click
+	$('.delete').live('click', function() {
+		var id = $(this).parent().parent('tr').attr('id');
+		var t = confirm('Delete this event?');
+		if (t) {
+			var deleteStr = 'event/'+id;
+			alert(deleteStr);
+			$.parse.delete(deleteStr, function() {
+				alert('Event deleted.');
+				el.fadeOut('slow', function() {
+					el.detach();
+				}); // fail handler unspecified
+			});
+		}
 	
-		$('.date').datetimepicker({
-			ampm: true
-		});
-		
-		$('.delete').live('click', function() {
-			var id = $(this).parent().parent('tr').attr('id');
-			var t = confirm('Delete this event?');
-			if (t) {
-				var deleteStr = 'event/'+id;
-				alert(deleteStr);
-				$.parse.delete(deleteStr, function() {
-					alert('Event deleted.');
-					el.fadeOut('slow', function() {
-						el.detach();
-					}); // fail handler unspecified
-				});
-			}
-		
-		}); // delete click
+	}); // delete click
 	
 	var list = $('#event_list');
 	var eventsGroup = Parse.Collection.extend({
@@ -155,7 +155,7 @@ $(function() {
 		var name = row.children('.name').children('input').attr('value');
 		var start = row.children('.start').children('input').attr('value');
 		var end = row.children('.end').children('input').attr('value');
-		$.parse.put('event/'+id, {
+		$.parse.put('event', {
 			details : details,
 			}, function(json){
 			row.event_notify();
