@@ -23,9 +23,17 @@
 	height: 2em;
 }
 
-.delete, .update {
+#event_able .actions {
+	width: 280px;
+}
+
+.actions div {
 	display: inline;
-	margin: 0 10px;
+	margin: 0 6px;
+}
+
+.success {
+	color: #005F3B;
 }
 
 textarea {
@@ -97,12 +105,13 @@ $(function() {
 			
 				list.append(
 					"<tr id='"+object.id+"'>" +
-							 "<td><input type='text' value='"+object.get("name")+"'/></td>" +
-							 "<td><input class='date' type='text' value='"+object.get("start")+"'/></td>" +
-							 "<td><input class='date' type='text' value='"+object.get("end")+"'/></td>" +
-							 "<td><input type='text' value='"+object.get("details")+"'/></td>" +
-							 "<td><div class='delete submit'>Delete</div>"+
+							 "<td class='name'><input type='text' value='"+object.get("name")+"'/></td>" +
+							 "<td class='start'><input class='date' type='text' value='"+object.get("start")+"'/></td>" +
+							 "<td class='end'><input class='date' type='text' value='"+object.get("end")+"'/></td>" +
+							 "<td class='details'><input type='text' value='"+object.get("details")+"'/></td>" +
+							 "<td class='actions'><div class='delete submit'>Delete</div>"+
 							 "<div class='update submit'>Save</div>" +
+							 "<div class='success' style='opacity:0'>Updated.</div>" +
 							 "</td>" +
 					"</tr>"
 				);				
@@ -121,16 +130,28 @@ $(function() {
 		
 		
 	$('.update').live('click', function() {
-		var id = $(this).parent().parent('tr').attr('id');
-	/*
-		$.parse.put('event/od9867Vwd4',{ body : 'my updated text' }, function(json){
-			console.log(json);
-		}, optionalErrorCallback);
-	*/
+		var row = $(this).parent().parent('tr');
+		var id = row.attr('id');
+		var details = row.children('.details').children('input').attr('value');
+		var name = row.children('.name').children('input').attr('value');
+		var start = row.children('.start').children('input').attr('value');
+		var end = row.children('.end').children('input').attr('value');
+		$.parse.put('event/'+id, {
+			details : details,
+			}, function(json){
+			row.event_notify();
+		}, function() {
+			console.log("Error updating event.");
+		});
 	
 	}); // update
 
 });
+
+$.fn.event_notify = function() {
+	var el = $(this).children().children().last();
+	el.fadeTo('slow', 1).delay(1800).fadeTo('slow', 0);
+};
 
 </script>
 
