@@ -38,6 +38,9 @@ $(function() {
 			</iframe>
 			<br>
 		</div>
+		
+		<img src="../images/trees-gym.gif" />
+		
 	</div>
 
 <?

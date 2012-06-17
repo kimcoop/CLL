@@ -32,7 +32,8 @@ $(function() {
 
 	<div class="text">
 		<div class="bubble"><h2>About</h2></div>
-		<div id="about"></div>
+		<div id="about" class="with_img" style="padding-top:10px"></div>
+		<img class="kids_img" src="../images/kids10.png" width="250" />
 	</div>
 
 	<div class="text">

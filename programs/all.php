@@ -17,6 +17,20 @@ $(function() {
 
 </script>
 
+<style>
+.img_container {
+	width: 600px;
+	margin: 10px auto;
+}
+
+.img_container img {
+	border: 2px solid #ccc;
+	float: left;
+	margin: 10px;
+}
+
+</style>
+
 <div id="title_container">
 
 		<img src="../images/programs_img.png" height="150" />
@@ -45,6 +59,11 @@ $(function() {
 			
 			<h3><a href="pack.php">PACK</a><div class="go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h3>	
 			<div id="pack"></div>
+			
+			<div class="img_container">
+				<img src="../images/kids1.png" width="250"/>
+				<img src="../images/kids9.png" width="250"/>
+			</div>
 			
 	</div>
 	

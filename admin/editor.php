@@ -37,6 +37,9 @@
 	<script type="text/javascript" src="../js/jquery-ui-timepicker-addon.js"></script>
 	<script type='text/javascript' src='wymeditor/jquery.wymeditor.pack.js'></script>
 	<script type='text/javascript'>
+	
+	var pages = new Array();
+	
 	$(function() {
 
 		Parse.initialize("Ji2ce107tebyCJEC31gGvyvZ24YsBVV2m1ES0VHz", "MICUaupejbUuLurojUgkZpyFGQWjLDrtJZAzcqxz");
@@ -55,68 +58,47 @@
 		collection.fetch({
 			success: function(collection) {
 				collection.each(function(object) {
-					page_list.append('<li class="page_link"><a href="#">'+ object.get("name") +'</a></li>&nbsp;');
+					pages[object.id] = object; // track them
+					page_list.append('<li class="page_link" id="'+object.id+'"><a href="#">'+ object.get("name") +'</a></li>&nbsp;');
 				});
 			},
 			error: function(collection, error) {
-				alert('The collection could not be retrieved. ' + error);
+				console.log('The collection could not be retrieved. ' + error);
 			}
 		});
 	
 		$('.page_link').live('click', function() {
 			var pageName = $(this).text();
-			selectedPage = pageName; // track it
-			var pageToFetch = Parse.Object.extend("page");
-			var query = new Parse.Query(pageToFetch);
+			var pageId = $(this).attr('id');
+			selectedPage = pageId;
 			
-			query.equalTo("name", pageName);
-			query.find({
-				success: function(result) {
-					var str = result[0].get("content");
+			var content = pages[pageId].get('content');
 					
-					if ($('.wym_skin_default').length > 0) {
-						$('.wym_skin_default').remove();
-						$('.editor').remove();
-					}
-					
-					$('#page_list').after(
-						"<textarea class='editor' name='page_code' id='page_code' style='display:none'></textarea><br>"
-					);
-					$('#page_code').text(str).wymeditor().show();
-					$('#page_code_save').show();
-					
-					$('.editor').hide();
-				},
-				error: function(error) {
-					console.log("Error: " + error.code + " " + error.message);
-				}
-			});
+			if ($('.wym_skin_default').length > 0) {
+				$('.wym_skin_default').remove();
+				$('.editor').remove();
+			}
+			
+			$('#page_list').after(
+				"<textarea class='editor' name='page_code' id='page_code' style='display:none'></textarea><br>"
+			);
+			
+			$('#page_code').text(content).wymeditor().show();
+			$('#page_code_save').show();
+			
+			$('.editor').hide();
 		
 		}); // page_link.click
 	  
 	  $("#page_code_save").live('click', function() {
+	  
 	  	var code = $.wymeditors(0).xhtml();
 		$('#page_code').text(code);
 		
-		var pageToFetch = Parse.Object.extend("page");
-		var query = new Parse.Query(pageToFetch);
-		var pageForUpdate = null;
-		
-		query.equalTo("name", selectedPage);
-		query.find({
-			success: function(result) {
-				pageForUpdate = result[0];
-				
-					pageForUpdate.save({
-						content: code
-					});
-					alert('Page updated.'); // TODO
-				
-			},
-			error: function(error) {
-				console.log("Error: " + error.code + " " + error.message);
-			}
-		}); // query.find
+		var page = pages[selectedPage]; // find by id
+		page.save({
+			content: code
+			});// save
 		}); // click
 		
 		$('#tabs li h3').click(function() {
@@ -127,7 +109,7 @@
 			$('.section').hide();
 			$('#section_'+id).show();
 		
-		}); // tabs click|		
+		}); // tabs click|	
 	  
 	});
 	</script>
@@ -212,7 +194,7 @@ h3 {
 		?>
 			
 		<form id="pw_form" action="<? $_SERVER['PHP_SELF']; ?>" method="post" enctype="application/x-www-form-urlencoded" target="_self">
-			<h2>Welcome to CLL Site Admin.</h2>
+			<br><h2>Welcome to CLL Site Admin.</h2>
 		
 			<p>Please enter the admin password.</p>
 			
