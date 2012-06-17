@@ -25,6 +25,7 @@
 	<title>CLL Admin</title>
 	<link type="text/css" rel="stylesheet" href="../style/admin.css"/>
 	<link type="text/css" rel="stylesheet" href="../style/base.css"/>
+	<link type="text/css" rel="stylesheet" href="../style/jquery-ui.css"/>
 	<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 	<link href="http://code.jquery.com/ui/1.8.19/themes/base/jquery-ui.css" rel='stylesheet' type='text/css'>
 	<meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -34,6 +35,7 @@
 	<script type="text/javascript" src="http://code.jquery.com/ui/1.8.20/jquery-ui.min.js"></script>
 <!--	<script src="../js/main.js" type="text/javascript"></script>-->
 	<script type="text/javascript" src = "../js/jquery.parse.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../js/jquery-ui-timepicker-addon.js"></script>
 	<script type='text/javascript' src='wymeditor/jquery.wymeditor.pack.js'></script>
 	<script type='text/javascript'>
@@ -96,8 +98,10 @@
 		$('#page_code').text(code);
 		
 		var page = pages[selectedPage]; // find by id
-		page.save({
-			content: code
+		page.set('content', code);
+		page.save(null, {success: function(obj) {
+				message('Page updated.');
+			}
 			});// save
 		}); // click
 		
@@ -112,7 +116,13 @@
 		}); // tabs click|	
 	  
 	});
-	</script>
+	
+
+function message(str) {
+	var el = $('#message');
+	el.text(str).fadeIn('slow').delay(2400).fadeOut();
+};	
+</script>
 	
 <style>
 
@@ -179,6 +189,18 @@ h3 {
 	border: 2px solid #000;
 }
 
+#message {
+	margin: 10px auto;
+	width: 100%;
+	border: 2px solid #003FCF;
+	color: #003FCF;
+	background: #efefef;
+	font-size: 1.2em;
+	padding: 1em 0;
+	text-align: center;
+	display: none;
+}
+
 </style>
 	
 </head>
@@ -221,9 +243,11 @@ h3 {
 			</style>
 			<div id="logout" class="link"><h2><a href="?do=logout">Logout&nbsp;&raquo;</a></h2></div>
 		
-			<form id="editor">
+			<div id="editor">
 				<h2>CLL Admin</h2>
 				<p><?= INTRO ?>
+				
+				<div id="message"></div>
 				
 				<ul id="tabs">
 					<li class="active"><h3 id="content">Manage Content</h3></li>
@@ -233,17 +257,17 @@ h3 {
 				<div class="clearfix"></div>
 				
 				<div id="section_content" class="section">
+					
+					<ul id='page_list' class='controls'></ul>
+					<input type='button' class='submit' id='page_code_save' name='page_code_save' value='Save' style='display:none'/>
 				
-				<ul id='page_list' class='controls'></ul>
-				<input type='button' class='submit' id='page_code_save' name='page_code_save' value='Save' style='display:none'/>
-				
-				</div><!-- #content_edit -->
+				</div><!-- #section_content -->
 				
 				<div id="section_cal" class="section" style="display:none">
 					<? include('event_editor.php'); ?>
-				</div><!-- #cal_edit -->
+				</div><!-- #section_cal -->
 				
-			</form>
+			</div><!-- editor -->
 			
 		<? } ?>
 			
