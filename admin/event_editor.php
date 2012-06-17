@@ -93,10 +93,8 @@ $(function() {
 			var deleteStr = 'event/'+id;
 			$.parse.delete(deleteStr, function() {
 					message('Event deleted.');
-				el.fadeOut('slow', function() {
-					el.detach();
+					getEvents(true);
 				}); // fail handler unspecified
-			});
 		}
 	
 	}); // delete click
@@ -192,6 +190,10 @@ function getEvents(animate) {
 			else {
 				el.fadeOut().html(str).fadeIn();
 			}
+			
+			if (str == '') {
+				el.text('No events at this time.');
+			}	
 	
 			$('.date').datetimepicker({
 				ampm: true
