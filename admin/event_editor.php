@@ -16,6 +16,15 @@
 	max-width: 200px;
 	word-wrap: break-word;
 	min-height: 2em;
+	padding: .4em 0;
+}
+
+#event_table thead {
+	background: #bbb;
+}
+
+#event_table tr:nth-child(even) {
+	background: #efefef;
 }
 
 #event_table .actions {
@@ -28,10 +37,6 @@
 	margin: 0 6px;
 }
 
-.success {
-	color: #005F3B;
-}
-
 #edit_event, #new_event {
 	display: none;
 	width: 250px;
@@ -40,13 +45,14 @@
 #edit_event_table td, #edit_event_table th {
 	text-align: left;
 	margin: 5px 0;
-	font-family: 'helvetica neue';
-	font-weight: 'light'
+	font-family: 'Helvetica Neue';
+	z-index: 9999;
 }
 
 #edit_event_table td, #edit_event_table input, #edit_event_table textarea {
 	width: 250px;
-	margin: .4em 0 .4em .1em;
+	margin: .5em 0;
+	font-family: 'Helvetica Neue';
 }
 
 .date {
@@ -57,6 +63,10 @@
 	width: 20px;
 }
 
+.ui-dialog .ui-dialog-titlebar {
+	font-family: 'Helvetica Neue';
+}
+
 
 </style>
 <script type="text/javascript">
@@ -65,20 +75,20 @@ var events = new Array();
 
 $(function() {
 	  
-  $('#new_event').click(function() {
+  $('#new_event_button').click(function() {
   
-  	var table = $("#event_table");
-  	var el = "<tr class='event_row'>";
-  	el += "<td class='name'><input type='text' placeholder='Event title'/></td>";
-  	el += "<td class='start'><input class='date' type='text' placeholder='Event start'/></td>";
-  	el += "<td class='end'><input class='date' type='text' placeholder='Event end'/></td>";
-  	el += "<td class='details'><textarea placeholder='Event details'></textarea></td>" +
-						 "<td class='actions'><div class='create_event submit'>Create Event</div></td></tr>";
-  	table.append(el);
-
-	$('.date').datetimepicker({
-		ampm: true
-	}); // reset so it works
+	$('#edit_event').dialog({ 
+		modal: false,
+		zIndex: 999,
+		width: 400,
+		buttons: { 
+			"Create": function() { $(this).dialog("close"); createEvent(); },
+			"Cancel": function() { $(this).dialog("close"); }
+		},
+		title: "Event Creation"
+	 });	
+		 
+	$('.justDate').datepicker();
   	
   }); // new_event click
 
@@ -113,9 +123,11 @@ $(function() {
 		$('#edit_end').attr('value', event.get('end'));
 		$('#edit_details').attr('value', event.get('details'));
 		
+		$('.justDate').datepicker();
+		
 		el.dialog({ 
 			modal: false,
-			zIndex: 999999999999,
+			zIndex: 999,
 			width: 400,
 			buttons: { 
 				"Save": function() { $(this).dialog("close"); updateEvent(eventId, event); },
@@ -127,6 +139,38 @@ $(function() {
 	
 });
 
+function createEvent() {
+
+	var Event = Parse.Object.extend("event");
+	var event = new Event();
+	
+	event.set("name", $('#edit_title').attr('value'));
+	event.set("start", $('#edit_start').attr('value'));
+	event.set("startTime", $('#edit_start_time').attr('value'));
+	event.set('end', $('#edit_end').attr('value'));
+	event.set('endTime', $('#edit_end_time').attr('value'));
+	event.set('details', $('#edit_event_details').attr('value'));
+
+	event.save(null, {
+	  success: function(eventObj) {
+		
+		message('Event created!');
+		getEvents(true);
+		events[eventObj.id] = eventObj;
+		clear();
+		
+	  },
+	  error: function(eventObj, error) {
+		
+		message('Error with event creation.');
+		console.log(error);
+		
+	  }
+	});
+
+
+}; // createEvent
+
 function updateEvent(eventId, event) {
 
 	event.set('name', $('#edit_title').attr('value'));
@@ -137,17 +181,13 @@ function updateEvent(eventId, event) {
 	event.set('details', $('#edit_details').attr('value'));
 	event.save(null, {
 	  success: function(eventObj) {
-		getEvents();
-		if (eventId) {
-			events[eventId] = eventObj;
-			message('Event updated.');
-		} else {
-			events[eventObj.id] = eventObj; // new creation
-			message('Event created');
-		}
+		events[eventId] = eventObj;
+		message('Event updated.');
 		getEvents(true);
+		clear();
 	  },
 	  error: function(eventObj, error) {
+	  	message('Error updating event.');
 		console.log(error);
 	  }
 	});
@@ -173,26 +213,22 @@ function getEvents(animate) {
 				var endTime = object.get('endTime');
 				var starting = start + ' at ' + startTime;
 				var ending = end + ' at ' +endTime;
+				var details = object.get('details');
+				if (details == null) details = '(None)';
 				str +=
 					"<tr id='"+object.id+"'>" +
 							 "<td class='name'>"+object.get("name")+"</td>" +
 							 "<td class='start'>"+starting+"</td>" +
 							 "<td class='end'>"+ending+"</td>" +
-							 "<td class='details'>"+object.get("details")+"</td>" +
+							 "<td class='details'>"+details+"</td>" +
 							 "<td class='actions'><div class='delete submit' id='deleteEvent_"+object.id+"'>Delete</div>"+
-							 "<div class='editEvent submit' id='editEvent_"+object.id+"'>Edit</div>" +
-							 "<div class='success' style='opacity:0'>Updated.</div>" +
-							 "</td>" +
+							 "<div class='editEvent submit' id='editEvent_"+object.id+"'>Edit</div></td>" +
 					"</tr>";
 			})// each
 			
 			if (!animate) el.html(str);
 			else {
 				el.fadeOut().html(str).fadeIn();
-			}
-			
-			if (str == '') {
-				el.text('No events at this time.');
 			}	
 	
 			$('.date').datetimepicker({
@@ -207,6 +243,17 @@ function getEvents(animate) {
 
 }; // getEvents
 
+function clear() {
+	
+	$('#edit_title').attr('value', '');
+	$('#edit_start').attr('value', '');
+	$('#edit_start_time').attr('value', '');
+	$('#edit_end_time').attr('value', '');		
+	$('#edit_end').attr('value', '');
+	$('#edit_details').attr('value', '');
+
+}; // clear
+
 </script>
 
 <div id="edit_event">
@@ -214,28 +261,15 @@ function getEvents(animate) {
 		<tr><th>Title</th>
 			<td><input id="edit_title" type="text" /></td></tr>
 		<tr><th>Start</th>
-			<td><input id="edit_start" type="text" /></td></tr>
+			<td><input id="edit_start" type="text" class="justDate" /></td></tr>
 		<tr><th>Start Time</th>
 			<td><input id="edit_start_time" type="text"/></td></tr>
 		<tr><th>End</th>
-			<td><input id="edit_end" type="text"/></td></tr>
+			<td><input id="edit_end" type="text" class="justDate" /></td></tr>
 		<tr><th>End Time</th>
 			<td><input id="edit_end_time" type="text" /></td></tr>
 		<tr><th>Details</th>
-			<td><textarea id="edit_details" type="text"></textarea></td></tr>	
-	</table>	
-</div>
-
-<div id="new_event">
-	<table>
-		<tr><th>Title</th>
-			<td><input id=new_title" type="text" /></td></tr>
-		<tr><th>Start</th>
-			<td><input id="new_start" type="text" class="date" /></td></tr>
-		<tr><th>End</th>
-			<td><input id="new_end" type="text" class="date"/></td></tr>
-		<tr><th>Start</th>
-			<td><textarea id="new_details" type="text"></textarea></td></tr>	
+			<td><textarea id="edit_details" placeholder="Additional information"></textarea></td></tr>	
 	</table>	
 </div>
 
@@ -245,7 +279,7 @@ function getEvents(animate) {
 		<th>Start</th>
 		<th>End</th>
 		<th>Details</th>
-		<th class="small"></th>
+		<th>Actions</th>
 	</thead>
 	
 	<tbody id="event_list">	
@@ -253,4 +287,4 @@ function getEvents(animate) {
 	
 	</table>
 	
-	<a class='submit' id='new_event'>New Event</a>
+	<a class='submit' id='new_event_button'>New Event</a>
