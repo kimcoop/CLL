@@ -250,8 +250,8 @@ h3 {
 				<div id="message"></div>
 				
 				<ul id="tabs">
-					<li class="active"><h3 id="content">Manage Content</h3></li>
-					<li><h3 id="cal">Manage Calendar</h3></li>
+					<li class="active"><h3 id="content">Content Manager</h3></li>
+					<li><h3 id="cal">Calendar Manager</h3></li>
 				</ul>
 				
 				<div class="clearfix"></div>

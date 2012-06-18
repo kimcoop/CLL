@@ -4,9 +4,7 @@
 }
 
 #event_table {
-	margin: 0px auto;
-	margin-bottom: 10px;
-	margin-left: 0;
+	margin: 10px auto;
 	width: 100%;
 }
 
@@ -114,30 +112,35 @@ $(function() {
 	$('.editEvent').live('click', function() {
 		var eventId = $(this).attr('id').split('_').pop();
 		var event = events[eventId];
-		
-		var el = $('#edit_event');
-		$('#edit_title').attr('value', event.get('name'));
-		$('#edit_start').attr('value', event.get('start'));
-		$('#edit_start_time').attr('value', event.get('startTime'));
-		$('#edit_end_time').attr('value', event.get('endTime'));		
-		$('#edit_end').attr('value', event.get('end'));
-		$('#edit_details').attr('value', event.get('details'));
-		
-		$('.justDate').datepicker();
-		
-		el.dialog({ 
-			modal: false,
-			zIndex: 999,
-			width: 400,
-			buttons: { 
-				"Save": function() { $(this).dialog("close"); updateEvent(eventId, event); },
-				"Cancel": function() { $(this).dialog("close"); }
-			},
-			title: "Editing Event"
-		 });			
-	}); // update
+		editEvent(event);
+	});// editEvent click
 	
 });
+
+function editEvent(event) {
+
+	var el = $('#edit_event');
+	$('#edit_title').attr('value', event.get('name'));
+	$('#edit_start').attr('value', event.get('start'));
+	$('#edit_start_time').attr('value', event.get('startTime'));
+	$('#edit_end_time').attr('value', event.get('endTime'));		
+	$('#edit_end').attr('value', event.get('end'));
+	$('#edit_details').attr('value', event.get('details'));
+	
+	$('.justDate').datepicker();
+	
+	el.dialog({ 
+		modal: false,
+		zIndex: 999,
+		width: 400,
+		buttons: { 
+			"Save": function() { $(this).dialog("close"); updateEvent(eventId, event); },
+			"Cancel": function() { $(this).dialog("close"); }
+		},
+		title: "Editing Event"
+	 });
+	
+}; // editEvent
 
 function createEvent() {
 
@@ -149,7 +152,7 @@ function createEvent() {
 	event.set("startTime", $('#edit_start_time').attr('value'));
 	event.set('end', $('#edit_end').attr('value'));
 	event.set('endTime', $('#edit_end_time').attr('value'));
-	event.set('details', $('#edit_event_details').attr('value'));
+	event.set('details', $('#edit_details').attr('value'));
 
 	event.save(null, {
 	  success: function(eventObj) {
