@@ -171,7 +171,6 @@ function createEvent() {
 	  }
 	});
 
-
 }; // createEvent
 
 function updateEvent(eventId, event) {
